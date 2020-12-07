@@ -13,4 +13,8 @@ const find = (entries, sumResultExpected) => {
   return null
 }
 
-module.exports = { find };
+const multiply = entries => {
+  return entries[0] * entries[1];
+}
+
+module.exports = { find, multiply };

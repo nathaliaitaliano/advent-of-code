@@ -47,5 +47,15 @@ describe('ReportRepair', function() {
 
         assert.deepStrictEqual(result, [1721, 299]);
     });
+
+    it('should return multiplication result 514579 from the two numbers found given a sum result 2020', function() {
+        const entries = [1721, 979, 366, 299, 675, 1456];
+        const sumResultExpected = 2020;
+
+        const result = report.multiply(report.find(entries, sumResultExpected));
+
+        assert.deepStrictEqual(result, 514579);
+    });
+    
   });
 });
