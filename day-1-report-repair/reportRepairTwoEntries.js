@@ -1,4 +1,4 @@
-const find = (entries, sumResultExpected) => {
+const findTwoEntries = (entries, sumResultExpected) => {
   if (entries.length === 0) return null
 
   for (let i = 0; i < entries.length; i++) {
@@ -12,6 +12,7 @@ const find = (entries, sumResultExpected) => {
   return null
 }
 
-const multiply = entries => entries[0] * entries[1]
 
-module.exports = { find, multiply };
+const multiplyTwoEntries = entries => entries[0] * entries[1]
+
+module.exports = { findTwoEntries, multiplyTwoEntries };
