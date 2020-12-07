@@ -1,9 +1,14 @@
 const find = (entries, sumResultExpected) => {
-  if (entries.length == 0) return null;
+  if (entries.length === 0) return null
 
-  const sumResult = entries[0] + entries[1];
-  if (sumResult === sumResultExpected) {
-    return entries;
+
+  for (let i = 0; i < entries.length; i++) {
+    for (let j = i+1; j < entries.length; j++) {
+      const sumResult = entries[i] + entries[j];
+      if (sumResult === sumResultExpected) {
+        return [entries[i], entries[j]]
+      }
+    }
   }
   return null
 }
