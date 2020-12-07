@@ -56,6 +56,7 @@ describe('ReportRepair', function() {
 
         assert.deepStrictEqual(result, 514579);
     });
+
     
   });
 });
