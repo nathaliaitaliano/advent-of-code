@@ -1,4 +1,7 @@
-const find = () => {
+const find = (entries) => {
+    if (entries.length != 0) {
+        return entries;
+    }
     return null;
 }
 
