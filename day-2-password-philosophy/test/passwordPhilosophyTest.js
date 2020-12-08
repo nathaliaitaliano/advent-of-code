@@ -14,15 +14,17 @@ describe('PasswprdPhilosophy', function () {
         it('should return TRUE given a password with the letter K', function () {
             const letter = "k";
             const password = "hacker";
-            const resultAnalysisExpected = passwordPhilosophy.analyse(password, letter);
+            const letterQuantityExpected = 1;
+            const resultAnalysisExpected = passwordPhilosophy.analyse(password, letter, letterQuantityExpected );
 
             assert.strictEqual(resultAnalysisExpected, true);
         });
 
         it('should return TRUE given a password have 2 letters F', function () {
             const letter = "f";
-            const password = "falafel"
-            const resultAnalysisExpected = passwordPhilosophy.analyse(password, letter);
+            const password = "falafel";
+            const letterQuantityExpected = 2;
+            const resultAnalysisExpected = passwordPhilosophy.analyse(password, letter, letterQuantityExpected);
 
             assert.strictEqual(resultAnalysisExpected, true);
         });
