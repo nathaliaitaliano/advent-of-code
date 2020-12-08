@@ -19,5 +19,12 @@ describe('PasswprdPhilosophy', function () {
             assert.strictEqual(resultAnalysisExpected, true);
         });
 
+        it('should return TRUE given a password have 2 letters F', function () {
+            const letter = "f";
+            const password = "falafel"
+            const resultAnalysisExpected = passwordPhilosophy.analyse(password, letter);
+
+            assert.strictEqual(resultAnalysisExpected, true);
+        });
     });
 });
