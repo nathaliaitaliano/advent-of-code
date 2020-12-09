@@ -13,5 +13,14 @@ describe('InputParser', function () {
       assert.strictEqual(letterMinQuantityExpected, resultParserExpected.letterMinQuantityExpected)
       assert.strictEqual(letterMaxQuantityExpected, resultParserExpected.letterMaxQuantityExpected)
     })
+
+    it('should return the letter that password need contain', function () {
+      const inputData = "2-4 f:"
+      const letterExpected = "f"
+      const resultParserExpected = inputParser.parse(inputData)
+
+      assert.strictEqual(letterExpected, resultParserExpected.letterExpected)
+
+    })
   })
 })
