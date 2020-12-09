@@ -22,5 +22,15 @@ describe('PasswordPhilosophy', function () {
 
             assert.strictEqual(resultAnalysisExpected, true)
         })
+
+        it('should return FALSE given a password that contains the letter M on the 3nd AND 4nd position', function() {
+            const letter = "m"
+            const password = "hammerwatch"
+            const firstPositionExpected = 3
+            const secondPositionExpected = 4
+            const resultAnalysisExpected = passwordPhilosophy.analyse(firstPositionExpected, secondPositionExpected, letter, password)
+
+            assert.strictEqual(resultAnalysisExpected, false)
+        })
     })
 })
