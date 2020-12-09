@@ -1,4 +1,4 @@
-const analyse = (password, letter, letterMinQuantityExpected, letterMaxQuantityExpected) => {
+const analyse = (letterMinQuantityExpected, letterMaxQuantityExpected, letter, password) => {
     const lettersPassword = password.split("")
     let letterQuantity = 0
 

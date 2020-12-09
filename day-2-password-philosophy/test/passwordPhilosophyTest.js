@@ -8,7 +8,7 @@ describe('PasswordPhilosophy', function () {
             const password = "ori"
             const letterMinQuantityExpected = 1
             const letterMaxQuantityExpected = 2
-            const resultAnalysisExpected = passwordPhilosophy.analyse(password, letter, letterMinQuantityExpected, letterMaxQuantityExpected)
+            const resultAnalysisExpected = passwordPhilosophy.analyse(letterMinQuantityExpected, letterMaxQuantityExpected, letter, password)
             assert.strictEqual(resultAnalysisExpected, false)
         })
 
@@ -17,7 +17,7 @@ describe('PasswordPhilosophy', function () {
             const password = "doom"
             const letterMinQuantityExpected = 1
             const letterMaxQuantityExpected = 3
-            const resultAnalysisExpected = passwordPhilosophy.analyse(password, letter, letterMinQuantityExpected, letterMaxQuantityExpected)
+            const resultAnalysisExpected = passwordPhilosophy.analyse(letterMinQuantityExpected, letterMaxQuantityExpected, letter, password)
 
             assert.strictEqual(resultAnalysisExpected, true)
         })
@@ -27,7 +27,7 @@ describe('PasswordPhilosophy', function () {
             const password = "hades"
             const letterMinQuantityExpected = 2
             const letterMaxQuantityExpected = 5
-            const resultAnalysisExpected = passwordPhilosophy.analyse(password, letter, letterMinQuantityExpected, letterMaxQuantityExpected)
+            const resultAnalysisExpected = passwordPhilosophy.analyse(letterMinQuantityExpected, letterMaxQuantityExpected, letter, password)
 
             assert.strictEqual(resultAnalysisExpected, false)
         })
@@ -37,7 +37,7 @@ describe('PasswordPhilosophy', function () {
             const password = "spiritfarer"
             const letterMinQuantityExpected = 1
             const letterMaxQuantityExpected = 2
-            const resultAnalysisExpected = passwordPhilosophy.analyse(password, letter, letterMinQuantityExpected, letterMaxQuantityExpected)
+            const resultAnalysisExpected = passwordPhilosophy.analyse(letterMinQuantityExpected, letterMaxQuantityExpected, letter, password)
 
             assert.strictEqual(resultAnalysisExpected, false)
         })
