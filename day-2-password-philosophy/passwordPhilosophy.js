@@ -1,6 +1,7 @@
 const analyse = (password, letter, letterQuantityExpected) => {
     const lettersPassword = password.split("")
     let letterQuantity = 0
+    let passwordValidation = false
 
     for (let i = 0; i < lettersPassword.length; i++) {
         if (lettersPassword[i] === letter) {
@@ -8,7 +9,12 @@ const analyse = (password, letter, letterQuantityExpected) => {
         }
     }
 
-    return letterQuantity === letterQuantityExpected
+    for (let j = 0; j < letterQuantityExpected.length; j++) {
+        if (letterQuantityExpected[j] === letterQuantity) {
+            passwordValidation = true
+        }
+    }
+    return passwordValidation
 }
 
 module.exports = { analyse };
