@@ -8,8 +8,7 @@ describe('PasswprdPhilosophy', function () {
             const password = "dog"
             const letterMinQuantityExpected = 1
             const letterMaxQuantityExpected = 2
-            const letterQuantityExpected = passwordPhilosophy.letterQuantityExpected(letterMinQuantityExpected, letterMaxQuantityExpected)
-            const resultAnalysisExpected = passwordPhilosophy.analyse(password, letter, letterQuantityExpected)
+            const resultAnalysisExpected = passwordPhilosophy.analyse(password, letter, letterMinQuantityExpected, letterMaxQuantityExpected)
             assert.strictEqual(resultAnalysisExpected, false)
         })
 
@@ -18,8 +17,7 @@ describe('PasswprdPhilosophy', function () {
             const password = "good"
             const letterMinQuantityExpected = 1
             const letterMaxQuantityExpected = 3
-            const letterQuantityExpected = passwordPhilosophy.letterQuantityExpected(letterMinQuantityExpected, letterMaxQuantityExpected)
-            const resultAnalysisExpected = passwordPhilosophy.analyse(password, letter, letterQuantityExpected)
+            const resultAnalysisExpected = passwordPhilosophy.analyse(password, letter, letterMinQuantityExpected, letterMaxQuantityExpected)
 
             assert.strictEqual(resultAnalysisExpected, true)
         })
@@ -29,8 +27,17 @@ describe('PasswprdPhilosophy', function () {
             const password = "with"
             const letterMinQuantityExpected = 2
             const letterMaxQuantityExpected = 5
-            const letterQuantityExpected = passwordPhilosophy.letterQuantityExpected(letterMinQuantityExpected, letterMaxQuantityExpected)
-            const resultAnalysisExpected = passwordPhilosophy.analyse(password, letter, letterQuantityExpected)
+            const resultAnalysisExpected = passwordPhilosophy.analyse(password, letter, letterMinQuantityExpected, letterMaxQuantityExpected)
+
+            assert.strictEqual(resultAnalysisExpected, false)
+        })
+
+        it('should return FALSE given a password that contains more of 1-2 letters E', function () {
+            const letter = "e"
+            const password = "between"
+            const letterMinQuantityExpected = 1
+            const letterMaxQuantityExpected = 2
+            const resultAnalysisExpected = passwordPhilosophy.analyse(password, letter, letterMinQuantityExpected, letterMaxQuantityExpected)
 
             assert.strictEqual(resultAnalysisExpected, false)
         })
