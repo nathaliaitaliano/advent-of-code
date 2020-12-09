@@ -1,5 +1,5 @@
 const assert = require('assert')
-const passwordPhilosophy = require('../passwordPhilosophy')
+const passwordPhilosophy = require('../part-one/passwordPhilosophy')
 
 describe('PasswordPhilosophy', function () {
     describe('findLetter', function () {
