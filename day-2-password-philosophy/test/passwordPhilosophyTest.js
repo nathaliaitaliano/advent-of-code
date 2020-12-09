@@ -47,5 +47,14 @@ describe('PasswprdPhilosophy', function () {
 
             assert.strictEqual(resultAnalysisExpected, true)
         })
+
+        it('should return FALSE given a password does not contains 2, 3 or 5 letters I', function () {
+            const letter = "i"
+            const password = "with"
+            const letterQuantityExpected = [2, 3, 5]
+            const resultAnalysisExpected = passwordPhilosophy.analyse(password, letter, letterQuantityExpected)
+
+            assert.strictEqual(resultAnalysisExpected, false)
+        })
     })
 })
