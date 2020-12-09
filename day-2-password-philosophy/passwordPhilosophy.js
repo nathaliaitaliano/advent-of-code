@@ -1,3 +1,13 @@
+const letterQuantityExpected = (letterMinQuantityExpected, letterMaxQuantityExpected) => {
+    let letterQuantity = []
+
+    for (let k = letterMinQuantityExpected; k <= letterMaxQuantityExpected; k++) {
+        letterQuantity.push(k)
+    }
+    return letterQuantity
+
+}
+
 const analyse = (password, letter, letterQuantityExpected) => {
     const lettersPassword = password.split("")
     let letterQuantity = 0
@@ -17,4 +27,4 @@ const analyse = (password, letter, letterQuantityExpected) => {
     return passwordValidation
 }
 
-module.exports = { analyse };
+module.exports = { analyse, letterQuantityExpected };
