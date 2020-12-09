@@ -1,7 +1,5 @@
-const { strict, strictEqual } = require('assert')
 const assert = require('assert')
-const { parse } = require('path')
-const inputParser = require('../inputParser')
+const inputParser = require('../part-one/inputParser')
 
 describe('InputParser', function () {
   describe('inputParser', function () {
