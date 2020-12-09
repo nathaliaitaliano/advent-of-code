@@ -1,11 +1,15 @@
 const parse = (inputData) => {
-  const passwordData = inputData.split("-")
-  const letterMinQuantityExpected = parseInt(passwordData[0])
-  const letterMaxQuantityExpected = parseInt(passwordData[1])
+  const passwordData = inputData.replace("-", " ").replace(":", " ").split(" ")
+  const letterMinQuantityExpected = Number(passwordData[0])
+  const letterMaxQuantityExpected = Number(passwordData[1])
+  const letterExpected = passwordData[2]
 
-  return { 
+
+
+  return {
     letterMinQuantityExpected,
-    letterMaxQuantityExpected
+    letterMaxQuantityExpected,
+    letterExpected
   }
 
 }
