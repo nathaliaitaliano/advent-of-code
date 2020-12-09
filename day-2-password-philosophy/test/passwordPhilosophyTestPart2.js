@@ -9,8 +9,18 @@ describe('PasswordPhilosophy', function () {
             const firstPositionExpected = 1
             const secondPositionExpected = 2
             const resultAnalysisExpected = passwordPhilosophy.analyse(firstPositionExpected, secondPositionExpected, letter, password)
+
             assert.strictEqual(resultAnalysisExpected, false)
         })
 
+        it('should return TRUE given a password that contains the letter I in a 2nd or 3nd position', function () {
+            const letter = "i"
+            const password = "kirby"
+            const firstPositionExpected = 2
+            const secondPositionExpected = 3
+            const resultAnalysisExpected = passwordPhilosophy.analyse(firstPositionExpected, secondPositionExpected, letter, password)
+
+            assert.strictEqual(resultAnalysisExpected, true)
+        })
     })
 })
