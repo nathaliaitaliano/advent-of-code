@@ -1,5 +1,6 @@
 const { strict, strictEqual } = require('assert')
 const assert = require('assert')
+const { parse } = require('path')
 const inputParser = require('../inputParser')
 
 describe('InputParser', function () {
@@ -16,11 +17,18 @@ describe('InputParser', function () {
 
     it('should return the letter that password need contain', function () {
       const inputData = "2-4 f:"
-      const letterExpected = "f"
+      const letter = "f"
       const resultParserExpected = inputParser.parse(inputData)
 
-      assert.strictEqual(letterExpected, resultParserExpected.letterExpected)
+      assert.strictEqual(letter, resultParserExpected.letter)
+    })
 
+    it('should return the password to be analyzed', function () {
+      const inputData = "1-4 n: cyberpunk"
+      const password = "cyberpunk"
+      const resultParserExpected = inputParser.parse(inputData)
+
+      assert.strictEqual(password, resultParserExpected.password)
     })
   })
 })
