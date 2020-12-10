@@ -1,11 +1,16 @@
 const countTrees = (map) => {
-  let count = 0
-  const trees = map[1]
+  let treesQuantity = 0
+  let column = 0
 
-  if (trees.charAt(2) === "#") {
-    count += 1
+  for (let i = 1; i < map.length; i++) {
+    column = column + 3
+    let toboggan = map[i].charAt(column)
+
+    if (toboggan === "#") {
+      treesQuantity += 1
+    }
   }
-  return count
+  return treesQuantity
 }
 
 module.exports = { countTrees }
