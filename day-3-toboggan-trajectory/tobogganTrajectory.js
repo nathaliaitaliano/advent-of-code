@@ -1,9 +1,10 @@
-const countTrees = (map) => {
+const countTrees = (map, xCoordinate = 3, yCoordinate = 1) => {
+
   let treesQuantity = 0
   let slopeCoordinate = 0
 
-  for (let i = 1; i < map.length; i++) {
-    slopeCoordinate += 3
+  for (let i = yCoordinate; i < map.length; i += yCoordinate) {
+    slopeCoordinate += xCoordinate
 
     if (slopeCoordinate >= map[i].length) {
       slopeCoordinate -= map[i].length
