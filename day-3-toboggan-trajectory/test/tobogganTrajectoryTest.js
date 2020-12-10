@@ -7,7 +7,7 @@ describe('TobogganTrajectory', function () {
       const map = [".........", "........."]
       const treesExpected = 0
       const treesQuantity = tobogganTrajectory.countTrees(map)
-      
+
       assert.strictEqual(treesExpected, treesQuantity)
     })
 
@@ -15,13 +15,21 @@ describe('TobogganTrajectory', function () {
       const map = ["...##.##.", "..###...."]
       const treesExpected = 1
       const treesQuantity = tobogganTrajectory.countTrees(map)
-      
+
       assert.strictEqual(treesExpected, treesQuantity)
     })
 
     it('should return 2 trees', function () {
       const map = [".....####", "..######", ".....###"]
       const treesExpected = 2
+      const treesQuantity = tobogganTrajectory.countTrees(map)
+
+      assert.strictEqual(treesExpected, treesQuantity)
+    })
+
+    it('should return 3 trees', function () {
+      const map = ["##########", "##########", "##########", "###.......", "#######..."]
+      const treesExpected = 3
       const treesQuantity = tobogganTrajectory.countTrees(map)
 
       assert.strictEqual(treesExpected, treesQuantity)
