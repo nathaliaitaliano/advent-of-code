@@ -1,5 +1,5 @@
 const validatePassport = (passportData) => {
-  return (passportData.byr === true)
+  return passportData.byr
 }
 
 module.exports = { validatePassport }
