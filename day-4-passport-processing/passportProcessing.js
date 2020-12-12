@@ -1,5 +1,5 @@
-const validatePassport = (passportData) => {
+const validate = (passportData) => {
   return ((passportData.byr) && (passportData.iyr))
 }
 
-module.exports = { validatePassport }
+module.exports = { validate }
