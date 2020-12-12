@@ -52,8 +52,8 @@ describe('PassportProcessing', function () {
       assert.ok(!passportValidation)
     })
 
-    xit('should return TRUE given a passport that contains the birth year,', function () {
-      const passportData = { byr: 1989, pid: 118755096 }
+    it('should return TRUE given a passport that contains the birth year, issue year, expiration year, height, hair color, eye color and passport ID data', function () {
+      const passportData = {ecl: "gry", pid: 860033327, eyr: 2020, hcl: "#fffffd", byr: 1937, iyr: 2017, cid: 147, hgt: "183cm"}
       const passportValidation = passportProcessing.validate(passportData)
 
       assert.ok(passportValidation)
