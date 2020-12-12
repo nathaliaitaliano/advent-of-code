@@ -3,7 +3,7 @@ const passportProcessing = require('../passportProcessing')
 
 describe('PassportProcessing', function () {
   describe('validate', function () {
-    it('should return FALSE given a password without the birth year', function () {
+    it('should return FALSE given a password without birth year', function () {
       const passportData = { ecl: "gry", pid: 860033327, eyr: 2020, hcl: "#fffffd", cid: 147, hgt: "183cm" }
       const passportValidation = passportProcessing.validate(passportData)
 
@@ -17,8 +17,8 @@ describe('PassportProcessing', function () {
       assert.ok(!passportValidation)
     })
 
-    it('should return FLASE given a passport without issue year', function () {
-      const passportData = { ecl: "gry", pid: 860033327, eyr: 2020, hcl: "#fffffd", iyr: 2017, cid: 147, hgt: "183cm" }
+    it('should return FLASE given a passport without expiration year', function () {
+      const passportData = {ecl: "gry", pid: 860033327, hcl: "#fffffd", byr: 1937, iyr: 2017, cid: 147, hgt: "183cm"}
       const passportValidation = passportProcessing.validate(passportData)
 
       assert.ok(!passportValidation)
