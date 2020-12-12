@@ -45,8 +45,8 @@ describe('PassportProcessing', function () {
       assert.ok(!passportValidation)
     })
 
-    xit('should return FALSE given a passport without passport ID', function () {
-      const passportData = {ecl: gry, eyr: 2020, hcl: "#fffffd", byr: 1937, iyr: 2017, cid: 147, hgt: "183cm"}
+    it('should return FALSE given a passport without passport ID', function () {
+      const passportData = {ecl: "gry", eyr: 2020, hcl: "#fffffd", byr: 1937, iyr: 2017, cid: 147, hgt: "183cm"}
       const passportValidation = passportProcessing.validate(passportData)
 
       assert.ok(!passportValidation)
