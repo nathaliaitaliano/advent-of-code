@@ -1,8 +1,11 @@
 const parse = (inputData) => {
   let passportsData = {}
+  const passportFields = inputData.split(", ")
 
-  passportsInputData = inputData.split(":")
-  passportsData[passportsInputData[0]] = passportsInputData[1]
+  for (let i = 0; i < passportFields.length; i++) {
+    const passportDataInformation = passportFields[i].split(":")
+    passportsData[passportDataInformation[0]] = passportDataInformation[1]
+  }
 
   return passportsData
 }
