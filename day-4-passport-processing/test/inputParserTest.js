@@ -34,5 +34,13 @@ describe('InputParser', function () {
 
       assert.deepStrictEqual(passportDataExpected, passportData)
     })
+
+    it('should return a string with the passport field data given a passport data line that contains all fields', function () {
+      const passportsInputData = ["iyr:2015 cid:189 ecl:oth byr:1947 hcl:#6c4ab1"]
+      const passportDataExpected = ["iyr:2015 cid:189 ecl:oth byr:1947 hcl:#6c4ab1"]
+      const passportData = inputParser.sanitize(passportsInputData)
+
+      assert.deepStrictEqual(passportDataExpected, passportData)
+    })
   })
 })
