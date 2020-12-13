@@ -27,10 +27,10 @@ describe('InputParser', function () {
       assert.deepStrictEqual(passportDataExpected, passportData)
     })
 
-    it('should return the fields objects for the second passport data given 2 passports data', function () {
-      const passportsInputData = ["iyr:2015 cid:189 ecl:oth byr:1947 hcl:#6c4ab1 eyr:2026 \n hgt:174cm \n pid:526744288 \n \r \n pid:688706448 iyr:2017 hgt:162cm cid:174 ecl:grn byr:1943 hcl:#808e9e eyr:2025"]
-      const passportDataExpected = { "passport0": { pid: "688706448", iyr: "2017", hgt: "162cm", cid: "174", ecl: "grn", byr: "1943", hcl: "#808e9e", eyr: "2025" } }
-      const passportData = inputParser.parse(passportsInputData)
+    it('should return a array with a empty string given a passport data line empty', function () {
+      const passportsInputData = [""]
+      const passportDataExpected = [""]
+      const passportData = inputParser.sanitize(passportsInputData)
 
       assert.deepStrictEqual(passportDataExpected, passportData)
     })
