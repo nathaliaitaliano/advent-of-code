@@ -12,12 +12,19 @@ const parse = (inputData) => {
 
 const sanitize = (inputData) => {
   let passportsData = []
+  let fieldsPassportData = ""
 
   for (let i = 0; i < inputData.length; i++) {
-    if (inputData[i] != "") {
-      passportsData.push(inputData[i])
+    if (inputData[i] !== "") {
+      fieldsPassportData += ` ${inputData[i]}`
+    }
+    if ((inputData[i] === "") || (i === inputData.length - 1)) {
+      passportsData.push(fieldsPassportData.trim())
+      fieldsPassportData = ""
     }
   }
+
   return passportsData
 }
+
 module.exports = { parse, sanitize }
