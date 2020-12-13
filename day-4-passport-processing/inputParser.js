@@ -11,8 +11,13 @@ const parse = (inputData) => {
 }
 
 const sanitize = (inputData) => {
-  if (passportData != "") {
-    return [passportData]
+  let passportsData = []
+
+  for (let i = 0; i < inputData.length; i++) {
+    if (inputData[i] != "") {
+      passportsData.push(inputData[i])
+    }
   }
+  return passportsData
 }
 module.exports = { parse, sanitize }
