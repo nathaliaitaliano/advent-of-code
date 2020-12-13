@@ -50,5 +50,17 @@ describe('InputParser', function () {
 
       assert.deepStrictEqual(passportDataExpected, passportData)
     })
+
+    it('should return a passport data given a input data with multiples lines', function () {
+      const passportsInputData = ["ecl:blu",
+        "eyr:2026",
+        "hcl:#efcc98",
+        "byr:1980 iyr:2013",
+        "hgt:161cm"]
+      const passportDataExpected = ["ecl:blu eyr:2026 hcl:#efcc98 byr:1980 iyr:2013 hgt:161cm"]
+      const passportData = inputParser.sanitize(passportsInputData)
+
+      assert.deepStrictEqual(passportDataExpected, passportData)
+    })
   })
 })
