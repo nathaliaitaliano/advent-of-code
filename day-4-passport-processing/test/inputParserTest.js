@@ -42,5 +42,13 @@ describe('InputParser', function () {
 
       assert.deepStrictEqual(passportDataExpected, passportData)
     })
+
+    it('should return a passport data for multiple passport inputs', function () {
+      const passportsInputData = ["iyr:2015 cid:189 ecl:oth byr:1947 hcl:#6c4ab1", "", "pid:117915262 eyr:2023 byr:1925 iyr:2020 hcl:#888785"]
+      const passportDataExpected = ["iyr:2015 cid:189 ecl:oth byr:1947 hcl:#6c4ab1", "pid:117915262 eyr:2023 byr:1925 iyr:2020 hcl:#888785"]
+      const passportData = inputParser.sanitize(passportsInputData)
+
+      assert.deepStrictEqual(passportDataExpected, passportData)
+    })
   })
 })
