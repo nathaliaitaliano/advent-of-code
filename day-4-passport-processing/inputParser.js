@@ -1,4 +1,5 @@
 const parse = (inputData) => {
+  const passportInput = inputData.toString().split('\n')
   let passportsData = {}
   const passportFields = inputData.split(" ")
 
@@ -9,4 +10,8 @@ const parse = (inputData) => {
   return passportsData
 }
 
-module.exports = { parse }
+const sanitize = (inputData) => {
+  return []
+}
+
+module.exports = { parse, sanitize }
