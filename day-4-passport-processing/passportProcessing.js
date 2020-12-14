@@ -32,7 +32,7 @@ const validate = (passportFieldsData) => {
   }
 
   const validateHeight = (height) => {
-    if (height) {
+    if (height && (height.includes("cm") || height.includes("in"))) {
       return true
     }
     return false
