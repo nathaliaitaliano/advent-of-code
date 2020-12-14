@@ -234,18 +234,25 @@ describe('PassportProcessing', function () {
       assert.ok(!passportValidation)
     })
 
-    it('should return FALSE given a hair color value that not contains exacly six characters before #', function () {
+    it('should return FALSE given a hair color value that not contains exacly six characters after #', function () {
       const passportFieldsData = { ecl: "oth", pid: 860033345, eyr: 2023, hcl: "#fff", byr: 1990, iyr: 2017, cid: 147, hgt: "183cm" }
       const passportValidation = passportProcessing.validate(passportFieldsData)
 
       assert.ok(!passportValidation)
     })
 
-    it('should return FALSE given a hair color value that not contains exacly six characters (0-9 or a-f) before #', function () {
+    it('should return FALSE given a hair color value that not contains exacly six characters (0-9 or a-f) after #', function () {
       const passportFieldsData = { ecl: "blu", pid: 860033345, eyr: 2023, hcl: "#fffxbp", byr: 1990, iyr: 2017, cid: 147, hgt: "183cm" }
       const passportValidation = passportProcessing.validate(passportFieldsData)
 
       assert.ok(!passportValidation)
+    })
+
+    it('should return TRUE given a hair color value that contains exacly six characters (0-9 or a-f) after #', function () {
+      const passportFieldsData = { ecl: "blu", pid: 860033345, eyr: 2023, hcl: "#fffffd", byr: 1990, iyr: 2017, cid: 147, hgt: "183cm" }
+      const passportValidation = passportProcessing.validate(passportFieldsData)
+
+      assert.ok(passportValidation)
     })
 
     it('should return FALSE given a eye color value black', function () {
