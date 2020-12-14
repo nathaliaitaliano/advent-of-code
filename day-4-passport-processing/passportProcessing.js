@@ -1,3 +1,5 @@
+const { count } = require("console")
+
 const validate = (passportFieldsData) => {
   const birthYear = passportFieldsData.byr
   const issueYear = passportFieldsData.iyr
@@ -6,6 +8,7 @@ const validate = (passportFieldsData) => {
   const hairColor = passportFieldsData.hcl
   const eyeColor = passportFieldsData.ecl
   const passportId = passportFieldsData.pid
+  const countryID = passportFieldsData.cid
 
   return (
     (birthYear && birthYear.toString().length === 4 && 1920 <= birthYear && birthYear <= 2002) &&
@@ -14,7 +17,8 @@ const validate = (passportFieldsData) => {
     (height) &&
     (hairColor) &&
     (eyeColor) &&
-    (passportId && passportId.toString().length === 9))
+    (passportId && passportId.toString().length === 9)) &&
+    (countryID || !countryID)
 }
 
 module.exports = { validate }
