@@ -206,6 +206,15 @@ describe('PassportProcessing', function () {
       assert.ok(passportValidation)
     })
 
+    it('should return FALSE given a height value that is not at least 59', function () {
+      const passportFieldsData = { ecl: "gry", pid: 860033327, eyr: 2025, hcl: "#fffffd", byr: 1989, iyr: 2017, cid: 147, hgt: "20in" }
+      const passportValidation = passportProcessing.validate(passportFieldsData)
+
+      assert.ok(!passportValidation)
+    })
+
+
+
     it('should return FALSE given a eye color value black', function () {
       const passportFieldsData = { ecl: "black", pid: 860033345, eyr: 2023, hcl: "#fffffd", byr: 1990, iyr: 2017, cid: 147, hgt: "183cm" }
       const passportValidation = passportProcessing.validate(passportFieldsData)
