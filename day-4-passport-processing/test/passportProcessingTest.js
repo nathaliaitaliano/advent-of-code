@@ -114,5 +114,12 @@ describe('PassportProcessing', function () {
 
       assert.ok(passportValidation)
     })
+
+    it('should return FALSE given a expiration year that is not at least 2020', function () {
+      const passportFieldsData = { ecl: "gry", pid: 860033327, eyr: 2019, hcl: "#fffffd", byr: 1900, iyr: 2017, cid: 147, hgt: "183cm" }
+      const passportValidation = passportProcessing.validate(passportFieldsData)
+
+      assert.ok(!passportValidation)
+    })
   })
 })
