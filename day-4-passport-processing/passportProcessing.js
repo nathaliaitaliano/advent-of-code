@@ -48,8 +48,8 @@ const validate = (passportFieldsData) => {
 
   const validateHairColor = (hairColor) => {
     if (hairColor) {
-      const hairColorCharaters = hairColor.split("")
-      if (hairColorCharaters[0] === "#") {
+      const hairColorCharacters = hairColor.split("")
+      if (hairColorCharacters[0] === "#" && hairColorCharacters.length - 2 === 5) {
         return true
       }
     }
