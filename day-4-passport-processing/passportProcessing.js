@@ -14,7 +14,7 @@ const validate = (passportFieldsData) => {
     (issueYear) &&
     (expirationYear) &&
     (expirationYear.toString().length === 4) &&
-    (2020 <= expirationYear) &&
+    (2020 <= expirationYear && expirationYear <= 2030) &&
     (height) &&
     (hairColor) &&
     (eyeColor) &&
