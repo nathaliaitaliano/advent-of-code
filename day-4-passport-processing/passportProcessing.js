@@ -6,7 +6,6 @@ const validate = (passportFieldsData) => {
   const hairColor = passportFieldsData.hcl
   const eyeColor = passportFieldsData.ecl
   const passportId = passportFieldsData.pid
-  const countryID = passportFieldsData.cid
 
   const validateBirthYear = (birthYear) => {
     if ((birthYear) && (birthYear.toString().length === 4) && (1920 <= birthYear && birthYear <= 2002)) {
@@ -77,15 +76,8 @@ const validate = (passportFieldsData) => {
     }
   }
 
-  const validatePassportID = (validatePassportID) => {
+  const validatePassportId = (passportId) => {
     if ((passportId) && (passportId.toString().length === 9)) {
-      return true
-    }
-    return false
-  }
-
-  const validateCountryID = (countryId) => {
-    if (countryID || !countryID) {
       return true
     }
     return false
@@ -98,8 +90,7 @@ const validate = (passportFieldsData) => {
     validateHeight(height) &&
     validateHairColor(hairColor) &&
     validateEyeColor(eyeColor) &&
-    validatePassportID(passportId) &&
-    validateCountryID(countryID)
+    validatePassportId(passportId)
   )
 }
 
