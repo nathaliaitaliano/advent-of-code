@@ -7,7 +7,7 @@ const validate = (passportFieldsData) => {
   const eyeColor = passportFieldsData.ecl
   const passportId = passportFieldsData.pid
 
-  return ((birthYear) && (issueYear) && (expirationYear) && (height) && (hairColor) && (eyeColor) && (passportId))
+  return ((birthYear) && (birthYear.toString().length === 4) && (issueYear) && (expirationYear) && (height) && (hairColor) && (eyeColor) && (passportId))
 }
 
 module.exports = { validate }
