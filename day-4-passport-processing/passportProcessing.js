@@ -1,5 +1,3 @@
-const { truncate } = require("fs/promises")
-
 const validate = (passportFieldsData) => {
   const birthYear = passportFieldsData.byr
   const issueYear = passportFieldsData.iyr
@@ -49,7 +47,18 @@ const validate = (passportFieldsData) => {
   const validateHairColor = (hairColor) => {
     if (hairColor) {
       const hairColorCharacters = hairColor.split("")
-      if (hairColorCharacters[0] === "#" && hairColorCharacters.length - 2 === 5) {
+      const charactersAllowed = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"]
+      let hairColorValidCharacters = []
+
+      for (let i = 1; i < hairColorCharacters.length; i++) {
+        for (let k = 0; k < charactersAllowed.length; k++) {
+          if (hairColorCharacters[i] === charactersAllowed[k]) {
+            hairColorValidCharacters.push(hairColorCharacters[i])
+          }
+        }
+      }
+
+      if (hairColorCharacters[0] === "#" && hairColorValidCharacters.length === 6) {
         return true
       }
     }
