@@ -84,7 +84,14 @@ describe('PassportProcessing', function () {
       const passportFieldsData = { ecl: "gry", pid: 860033327, eyr: 2020, hcl: "#fffffd", byr: 1900, iyr: 2017, cid: 147, hgt: "183cm" }
       const passportValidation = passportProcessing.validate(passportFieldsData)
 
-      assert.ok(passportValidation)
+      assert.ok(!passportValidation)
+    })
+
+    it('should return FALSE given a birth year that is not at most 2002', function () {
+      const passportFieldsData = { ecl: "gry", pid: 860033327, eyr: 2020, hcl: "#fffffd", byr: 2006, iyr: 2017, cid: 147, hgt: "183cm" }
+      const passportValidation = passportProcessing.validate(passportFieldsData)
+
+      assert.ok(!passportValidation)
     })
   })
 })
