@@ -1,11 +1,11 @@
-const validate = (passportData) => {
-  const birthYear = passportData.byr
-  const issueYear = passportData.iyr
-  const expirationYear = passportData.eyr
-  const height = passportData.hgt
-  const hairColor = passportData.hcl
-  const eyeColor = passportData.ecl
-  const passportId = passportData.pid
+const validate = (passportFieldsData) => {
+  const birthYear = passportFieldsData.byr
+  const issueYear = passportFieldsData.iyr
+  const expirationYear = passportFieldsData.eyr
+  const height = passportFieldsData.hgt
+  const hairColor = passportFieldsData.hcl
+  const eyeColor = passportFieldsData.ecl
+  const passportId = passportFieldsData.pid
 
   return ((birthYear) && (issueYear) && (expirationYear) && (height) && (hairColor) && (eyeColor) && (passportId))
 }
