@@ -184,5 +184,12 @@ describe('PassportProcessing', function () {
 
       assert.ok(passportValidation)
     })
+
+    it('should return TRUE given a passport with country ID number', function () {
+      const passportFieldsData = { ecl: "gry", pid: 860033678, eyr: 2023, hcl: "#fffffd", byr: 1990, iyr: 2017, cid: 147, hgt: "183cm" }
+      const passportValidation = passportProcessing.validate(passportFieldsData)
+
+      assert.ok(passportValidation)
+    })
   })
 })
