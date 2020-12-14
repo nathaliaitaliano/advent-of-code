@@ -72,5 +72,12 @@ describe('PassportProcessing', function () {
 
       assert.ok(!passportValidation)
     })
+
+    it('should return TRUE given a birth year with four numbers', function () {
+      const passportFieldsData = { ecl: "gry", pid: 860033327, eyr: 2020, hcl: "#fffffd", byr: 1937, iyr: 2017, cid: 147, hgt: "183cm" }
+      const passportValidation = passportProcessing.validate(passportFieldsData)
+
+      assert.ok(passportValidation)
+    })
   })
 })
