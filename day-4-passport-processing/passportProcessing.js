@@ -35,11 +35,11 @@ const validate = (passportFieldsData) => {
     if (height) {
       const heightInCentimeters = Number(height.replace("cm", ""))
       const heightInInches = Number(height.replace("in", ""))
-      
+
       if (height.includes("cm") && 150 <= heightInCentimeters && heightInCentimeters <= 193) {
         return true
       }
-      if (height.includes("in")) {
+      if (height.includes("in") && 59 <= heightInInches) {
         return true
       }
     }
