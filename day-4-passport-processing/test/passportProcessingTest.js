@@ -108,6 +108,13 @@ describe('PassportProcessing', function () {
       assert.ok(!passportValidation)
     })
 
+    it('should return TRUE given a issue year with four numbers', function () {
+      const passportFieldsData = { ecl: "gry", pid: 860033327, eyr: 2020, hcl: "#fffffd", byr: 1937, iyr: 2017, cid: 147, hgt: "183cm" }
+      const passportValidation = passportProcessing.validate(passportFieldsData)
+
+      assert.ok(passportValidation)
+    })
+
     it('should return FALSE given a expiration year without four numbers', function () {
       const passportFieldsData = { ecl: "gry", pid: 860033327, eyr: 20, hcl: "#fffffd", byr: 1937, iyr: 2017, cid: 147, hgt: "183cm" }
       const passportValidation = passportProcessing.validate(passportFieldsData)
