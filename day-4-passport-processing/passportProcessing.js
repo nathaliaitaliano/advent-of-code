@@ -9,21 +9,21 @@ const validate = (passportFieldsData) => {
   const countryID = passportFieldsData.cid
 
   const validateBirthYear = (birthYear) => {
-    if (birthYear && birthYear.toString().length === 4 && 1920 <= birthYear && birthYear <= 2002) {
+    if ((birthYear) && (birthYear.toString().length === 4) && (1920 <= birthYear && birthYear <= 2002)) {
       return true
     }
     return false
   }
 
   const validateIssueYear = (issueYear) => {
-    if (issueYear && issueYear.toString().length === 4 && 2010 <= issueYear && issueYear <= 2020) {
+    if ((issueYear) && (issueYear.toString().length === 4) && (2010 <= issueYear && issueYear <= 2020)) {
       return true
     }
     return false
   }
 
   const validateExpirationYear = (expirationYear) => {
-    if (expirationYear && expirationYear.toString().length === 4 && 2020 <= expirationYear && expirationYear <= 2030) {
+    if ((expirationYear) && (expirationYear.toString().length === 4) && (2020 <= expirationYear && expirationYear <= 2030)) {
       return true
     }
     return false
@@ -34,10 +34,10 @@ const validate = (passportFieldsData) => {
       const heightInCentimeters = Number(height.replace("cm", ""))
       const heightInInches = Number(height.replace("in", ""))
 
-      if (height.includes("cm") && 150 <= heightInCentimeters && heightInCentimeters <= 193) {
+      if ((height.includes("cm")) && (150 <= heightInCentimeters && heightInCentimeters <= 193)) {
         return true
       }
-      if (height.includes("in") && 59 <= heightInInches && heightInInches <= 76) {
+      if ((height.includes("in")) && (59 <= heightInInches && heightInInches <= 76)) {
         return true
       }
     }
@@ -58,7 +58,7 @@ const validate = (passportFieldsData) => {
         }
       }
 
-      if (hairColorCharacters[0] === "#" && hairColorValidCharacters.length === 6) {
+      if ((hairColorCharacters[0] === "#") && (hairColorValidCharacters.length === 6)) {
         return true
       }
     }
@@ -78,7 +78,7 @@ const validate = (passportFieldsData) => {
   }
 
   const validatePassportID = (validatePassportID) => {
-    if (passportId && passportId.toString().length === 9) {
+    if ((passportId) && (passportId.toString().length === 9)) {
       return true
     }
     return false
