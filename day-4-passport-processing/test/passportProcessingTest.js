@@ -66,7 +66,7 @@ describe('PassportProcessing', function () {
       assert.ok(passportValidation)
     })
 
-    it('should return FALSE given a birth year with two numbers', function () {
+    it('should return FALSE given a birth year without four numbers', function () {
       const passportFieldsData = { ecl: "gry", pid: 860033327, eyr: 2020, hcl: "#fffffd", byr: 37, iyr: 2017, cid: 147, hgt: "183cm" }
       const passportValidation = passportProcessing.validate(passportFieldsData)
 
@@ -99,6 +99,13 @@ describe('PassportProcessing', function () {
       const passportValidation = passportProcessing.validate(passportFieldsData)
 
       assert.ok(passportValidation)
+    })
+
+    it('should return FALSE given a expiration year without four numbers', function () {
+      const passportFieldsData = { ecl: "gry", pid: 860033327, eyr: 20, hcl: "#fffffd", byr: 1937, iyr: 2017, cid: 147, hgt: "183cm" }
+      const passportValidation = passportProcessing.validate(passportFieldsData)
+
+      assert.ok(!passportValidation)
     })
   })
 })
