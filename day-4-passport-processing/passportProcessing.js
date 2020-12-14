@@ -1,5 +1,3 @@
-const { count } = require("console")
-
 const validate = (passportFieldsData) => {
   const birthYear = passportFieldsData.byr
   const issueYear = passportFieldsData.iyr
@@ -16,7 +14,7 @@ const validate = (passportFieldsData) => {
     (expirationYear && expirationYear.toString().length === 4 && 2020 <= expirationYear && expirationYear <= 2030) &&
     (height) &&
     (hairColor) &&
-    (eyeColor) &&
+    (eyeColor && eyeColor === "amb" || eyeColor === "blu" || eyeColor === "brn" || eyeColor === "gry" || eyeColor === "grn" || eyeColor === "hzl" || eyeColor === "oth") &&
     (passportId && passportId.toString().length === 9)) &&
     (countryID || !countryID)
 }
