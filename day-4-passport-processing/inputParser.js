@@ -16,12 +16,17 @@ const sanitize = (passportsInputData) => {
 }
 
 const parse = (passportsData) => {
+  const fieldsObjectsNumberRequired = ["byr", "iyr", "eyr", "pid", "cid"]
   const passportsFieldsData = passportsData.split(" ")
   let passportFieldsInformation = {}
 
   for (let i = 0; i < passportsFieldsData.length; i++) {
-    const passportDataInformation = passportsFieldsData[i].split(":")
-    passportFieldsInformation[passportDataInformation[0]] = passportDataInformation[1]
+    const [field, value] = passportsFieldsData[i].split(":")
+    if (fieldsObjectsNumberRequired.includes(field)) {
+      passportFieldsInformation[field] = Number(value)
+    } else {
+      passportFieldsInformation[field] = value
+    }
   }
   return passportFieldsInformation
 }
