@@ -178,11 +178,18 @@ describe('PassportProcessing', function () {
       assert.ok(!passportValidation)
     })
 
-    it('should return TRUE given a passport with the height value with metrics (cm or in)', function () {
+    it('should return TRUE given a height value with metrics (cm or in)', function () {
       const passportFieldsData = { ecl: "gry", pid: 860033327, eyr: 2025, hcl: "#fffffd", byr: 1989, iyr: 2017, cid: 147, hgt: "183cm"}
       const passportValidation = passportProcessing.validate(passportFieldsData)
 
       assert.ok(passportValidation)
+    })
+
+    it('should return FALSE given a height value that is not at least 150cm', function () {
+      const passportFieldsData = { ecl: "gry", pid: 860033327, eyr: 2025, hcl: "#fffffd", byr: 1989, iyr: 2017, cid: 147, hgt: "120cm"}
+      const passportValidation = passportProcessing.validate(passportFieldsData)
+
+      assert.ok(!passportValidation)
     })
 
     it('should return FALSE given a eye color value black', function () {
