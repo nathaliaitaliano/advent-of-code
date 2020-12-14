@@ -8,14 +8,15 @@ const validate = (passportFieldsData) => {
   const passportId = passportFieldsData.pid
 
   return (
-    (birthYear) && 
-    (birthYear.toString().length === 4) && 
-    (1920 <= birthYear && birthYear <= 2002) && 
-    (issueYear) && 
-    (expirationYear) && 
-    (height) && 
-    (hairColor) && 
-    (eyeColor) && 
+    (birthYear) &&
+    (birthYear.toString().length === 4) &&
+    (1920 <= birthYear && birthYear <= 2002) &&
+    (issueYear) &&
+    (expirationYear) &&
+    (expirationYear.toString().length === 4) &&
+    (height) &&
+    (hairColor) &&
+    (eyeColor) &&
     (passportId))
 }
 
