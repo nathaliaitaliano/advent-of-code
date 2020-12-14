@@ -178,6 +178,13 @@ describe('PassportProcessing', function () {
       assert.ok(!passportValidation)
     })
 
+    it('should return TRUE given a eye color value oth', function () {
+      const passportFieldsData = { ecl: "oth", pid: 860033345, eyr: 2023, hcl: "#fffffd", byr: 1990, iyr: 2017, cid: 147, hgt: "183cm" }
+      const passportValidation = passportProcessing.validate(passportFieldsData)
+
+      assert.ok(passportValidation)
+    })
+
     it('should return FALSE given a passport ID number that not contains nine digits', function () {
       const passportFieldsData = { ecl: "gry", pid: 860033, eyr: 2023, hcl: "#fffffd", byr: 1990, iyr: 2017, cid: 147, hgt: "183cm" }
       const passportValidation = passportProcessing.validate(passportFieldsData)
