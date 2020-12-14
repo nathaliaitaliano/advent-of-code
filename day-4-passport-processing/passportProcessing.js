@@ -14,7 +14,7 @@ const validate = (passportFieldsData) => {
     (height) &&
     (hairColor) &&
     (eyeColor) &&
-    (passportId))
+    (passportId && passportId.toString().length === 9))
 }
 
 module.exports = { validate }
