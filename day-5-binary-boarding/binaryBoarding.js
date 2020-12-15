@@ -1,4 +1,5 @@
-const findSeatId = () => {
+const findSeatId = (boardingPasses) => {
+  return [0, 63]
 }
 
 const rangeRowsInitial = () => {
