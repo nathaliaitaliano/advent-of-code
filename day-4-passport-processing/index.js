@@ -8,6 +8,7 @@ let validPassports = 0;
 
 for (let i = 0; i < passportsData.length; i++) {
   const passportsFieldsInformation = inputParser.parse(passportsData[i])
+
   if (passportProcessing.validate(passportsFieldsInformation)) {
     validPassports++
   }
