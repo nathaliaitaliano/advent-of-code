@@ -57,7 +57,7 @@ describe('InputParser', function () {
 
     it('should return 8 fields objects given 8 fields passport data', function () {
       const passportsData = "pid:688706448 iyr:2017 hgt:162cm cid:174 ecl:grn byr:1943 hcl:#808e9e eyr:2025"
-      const passportsFieldsInformationExpected = { pid: 688706448, iyr: 2017, hgt: "162cm", cid: 174, ecl: "grn", byr: 1943, hcl: "#808e9e", eyr: 2025 }
+      const passportsFieldsInformationExpected = { pid: "688706448", iyr: 2017, hgt: "162cm", cid: 174, ecl: "grn", byr: 1943, hcl: "#808e9e", eyr: 2025 }
       const passportFieldsInformation = inputParser.parse(passportsData)
 
       assert.deepStrictEqual(passportsFieldsInformationExpected, passportFieldsInformation)
