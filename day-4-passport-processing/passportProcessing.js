@@ -43,7 +43,7 @@ const validate = (passportFieldsData) => {
   }
 
   const validatePassportId = (passportId) => {
-    return passportId && (passportId.toString().length === 9)
+    return passportId && (passportId.length === 9)
   }
 
   return (
