@@ -1,4 +1,5 @@
 const findSeatId = (boardingPasses) => {
+  if (boardingPasses[0] === "F")
   return [0, 63]
 }
 
