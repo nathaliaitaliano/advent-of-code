@@ -16,7 +16,7 @@ const sanitize = (passportsInputData) => {
 }
 
 const parse = (passportsData) => {
-  const fieldsObjectsNumberRequired = ["byr", "iyr", "eyr", "pid", "cid"]
+  const fieldsObjectsNumberRequired = ["byr", "iyr", "eyr", "cid"]
   const passportsFieldsData = passportsData.split(" ")
   let passportFieldsInformation = {}
 
