@@ -8,31 +8,22 @@ const validate = (passportFieldsData) => {
   const passportId = passportFieldsData.pid
 
   const validateBirthYear = (birthYear) => {
-    if ((birthYear) && (birthYear.toString().length === 4) && (1920 <= birthYear && birthYear <= 2002)) {
-      return true
-    }
-    return false
+    return ((birthYear) && (birthYear.toString().length === 4) && (1920 <= birthYear && birthYear <= 2002))
   }
 
   const validateIssueYear = (issueYear) => {
-    if ((issueYear) && (issueYear.toString().length === 4) && (2010 <= issueYear && issueYear <= 2020)) {
-      return true
-    }
-    return false
+    return ((issueYear) && (issueYear.toString().length === 4) && (2010 <= issueYear && issueYear <= 2020))
   }
 
   const validateExpirationYear = (expirationYear) => {
-    if ((expirationYear) && (expirationYear.toString().length === 4) && (2020 <= expirationYear && expirationYear <= 2030)) {
-      return true
-    }
-    return false
+    return ((expirationYear) && (expirationYear.toString().length === 4) && (2020 <= expirationYear && expirationYear <= 2030))
   }
 
   const validateHeight = (height) => {
     if (height) {
       const heightInCentimeters = Number(height.replace("cm", ""))
       const heightInInches = Number(height.replace("in", ""))
-
+      
       if ((height.includes("cm")) && (150 <= heightInCentimeters && heightInCentimeters <= 193)) {
         return true
       }
@@ -57,30 +48,19 @@ const validate = (passportFieldsData) => {
         }
       }
 
-      if ((hairColorCharacters[0] === "#") && (hairColorValidCharacters.length === 6)) {
-        return true
-      }
+      return ((hairColorCharacters[0] === "#") && (hairColorValidCharacters.length === 6))
     }
-    return false
   }
 
   const validateEyeColor = (eyeColor) => {
     if (eyeColor) {
       const colorsPossibilities = ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]
-      for (let i = 0; i < colorsPossibilities.length; i++) {
-        if (eyeColor === colorsPossibilities[i]) {
-          return true
-        }
-      }
-      return false
+      return colorsPossibilities.includes(eyeColor)
     }
   }
 
   const validatePassportId = (passportId) => {
-    if ((passportId) && (passportId.toString().length === 9)) {
-      return true
-    }
-    return false
+    return ((passportId) && (passportId.toString().length === 9))
   }
 
   return (
