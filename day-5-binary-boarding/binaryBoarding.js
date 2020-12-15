@@ -1,8 +1,12 @@
-const findSeat = () => {
+const findSeatId = () => {
 }
 
 const rangeRowsInitial = () => {
   return [0, 127]
 }
 
-module.exports = { findSeat, rangeRowsInitial }
+const rangeColumnsInitial = () => {
+  return [0, 7]
+}
+
+module.exports = { findSeatId, rangeRowsInitial, rangeColumnsInitial }
