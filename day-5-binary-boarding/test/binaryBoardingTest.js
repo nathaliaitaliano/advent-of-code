@@ -16,5 +16,14 @@ describe('BinaryBoarding', function () {
       const rangeColumnsInitial = binaryBoarding.rangeColumnsInitial()
       assert.deepStrictEqual(rangeColumnsInitialExpected, rangeColumnsInitial)
     })
+
+    it('should return the lower half range rows [0, 63], based on initial range rows coordinate [0, 127], given a boarding passes that starts with the F letter', function () {
+      const rangeRowsExpected = [0, 63]
+      const boardingPasses = "FBFBBFFRLR"
+
+      const rangeRows = binaryBoarding.findSeatId(boardingPasses)
+
+      assert.deepStrictEqual(rangeRowsExpected, rangeRows)
+    })
   })
 })
