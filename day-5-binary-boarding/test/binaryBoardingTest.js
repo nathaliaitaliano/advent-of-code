@@ -48,5 +48,13 @@ describe('BinaryBoarding', function () {
 
       assert.deepStrictEqual(rangeRowsExpected, rangeRows)
     })
+
+    it.only('should return the upper half range rows coordinate, calculate from the range rows result for the letter before, given a boarding passes withthe F letter', function () {
+      const rangeRowsExpected = [40, 47]
+      const boardingPasses = "FBFB"
+      const rangeRows = binaryBoarding.findSeatCoordinates(boardingPasses)
+
+      assert.deepStrictEqual(rangeRowsExpected, rangeRows)
+    })
   })
 })
