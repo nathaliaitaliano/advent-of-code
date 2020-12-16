@@ -131,7 +131,7 @@ describe('BinaryBoarding', function () {
 
     it('should return seat Id given a boarding pass number', function () {
       const seatIdExpected = 357
-      const boardingPass = "FBFBBFBRLR"
+      const boardingPass = "FBFBBFFRLR"
       const seatId = binaryBoarding.generateSeatId(boardingPass)
 
       assert.deepStrictEqual(seatIdExpected, seatId)
