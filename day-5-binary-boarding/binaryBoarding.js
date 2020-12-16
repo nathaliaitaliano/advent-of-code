@@ -24,7 +24,7 @@ const findSeatCoordinates = (boardingPasses) => {
       console.log(row)
     }
     if(i != 0 && boardingPasses[i] === "B") {
-      row = [Math.ceil((row[1] - row[0]) / 2), row[1]]
+      row = [Math.ceil((row[1] - row[0]) / 2) + row[0], row[1]]
       console.log(row)
     }
   }
