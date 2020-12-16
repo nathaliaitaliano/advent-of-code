@@ -88,5 +88,13 @@ describe('BinaryBoarding', function () {
 
       assert.deepStrictEqual(seatColumnExpected, seatColumn)
     })
+
+     it('should return the lower half range columns coordinate, calculate from the range columns result for the letter before, given a boarding passes that columns reference is started by L letter', function () {
+      const rangeRowsExpected = [4, 5]
+      const boardingPass = "RL"
+      const rangeRows = binaryBoarding.findSeatColumnCoordinate(boardingPass)
+
+      assert.deepStrictEqual(rangeRowsExpected, rangeRows)
+    })
   })
 })
