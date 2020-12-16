@@ -19,42 +19,50 @@ describe('BinaryBoarding', function () {
 
     it('should return the lower half range rows coordinate, calculate from the range rows initial,  given a boarding passes that starts with the F letter', function () {
       const rangeRowsExpected = [0, 63]
-      const boardingPasses = "F"
-      const rangeRows = binaryBoarding.findSeatCoordinates(boardingPasses)
+      const boardingPass = "F"
+      const rangeRows = binaryBoarding.findSeatCoordinates(boardingPass)
 
       assert.deepStrictEqual(rangeRowsExpected, rangeRows)
     })
 
     it('should return the upper half range rows coordinate, calculate from the range rows initial, given a boarding passes that starts with the B letter', function () {
       const rangeRowsExpected = [0, 64]
-      const boardingPasses = "B"
-      const rangeRows = binaryBoarding.findSeatCoordinates(boardingPasses)
+      const boardingPass = "B"
+      const rangeRows = binaryBoarding.findSeatCoordinates(boardingPass)
 
       assert.deepStrictEqual(rangeRowsExpected, rangeRows)
     })
 
     it('should return the upper half range rows coordinate, calculate from the range rows result for the letter before, given a boarding passes withthe B letter', function () {
       const rangeRowsExpected = [32, 63]
-      const boardingPasses = "FB"
-      const rangeRows = binaryBoarding.findSeatCoordinates(boardingPasses)
+      const boardingPass = "FB"
+      const rangeRows = binaryBoarding.findSeatCoordinates(boardingPass)
 
       assert.deepStrictEqual(rangeRowsExpected, rangeRows)
     })
 
-    it.only('should return the lower half range rows coordinate, calculate from the range rows result for the letter before, given a boarding passes withthe F letter', function () {
+    it('should return the lower half range rows coordinate, calculate from the range rows result for the letter before, given a boarding passes withthe F letter', function () {
       const rangeRowsExpected = [32, 47]
-      const boardingPasses = "FBF"
-      const rangeRows = binaryBoarding.findSeatCoordinates(boardingPasses)
+      const boardingPass = "FBF"
+      const rangeRows = binaryBoarding.findSeatCoordinates(boardingPass)
 
       assert.deepStrictEqual(rangeRowsExpected, rangeRows)
     })
 
-    it.only('should return the upper half range rows coordinate, calculate from the range rows result for the letter before, given a boarding passes withthe F letter', function () {
+    it('should return the upper half range rows coordinate, calculate from the range rows result for the letter before, given a boarding passes withthe F letter', function () {
       const rangeRowsExpected = [40, 47]
-      const boardingPasses = "FBFB"
-      const rangeRows = binaryBoarding.findSeatCoordinates(boardingPasses)
+      const boardingPass = "FBFB"
+      const rangeRows = binaryBoarding.findSeatCoordinates(boardingPass)
 
       assert.deepStrictEqual(rangeRowsExpected, rangeRows)
+    })
+
+    it.only('should return a seat row given a boarding pass that is finished with F letter', function () {
+      const seatRowExpected = 44
+      const boardingPass = "FBFBBFFRLR"
+      const seatRow = binaryBoarding.findSeatCoordinates(boardingPass)
+
+      assert.deepStrictEqual(seatRowExpected, seatRow)
     })
   })
 })
