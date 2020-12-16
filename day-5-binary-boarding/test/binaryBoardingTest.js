@@ -112,5 +112,13 @@ describe('BinaryBoarding', function () {
 
       assert.deepStrictEqual(rangeRowsExpected, rangeRows)
     })
+
+    it('should return seat column coordinate (with the min value of a range), boarding passes that columns reference is finished by L letter', function () {
+      const rangeRowsExpected = 4
+      const boardingPass = "RLL"
+      const rangeRows = binaryBoarding.findSeatColumnCoordinate(boardingPass)
+
+      assert.deepStrictEqual(rangeRowsExpected, rangeRows)
+    })
   })
 })
