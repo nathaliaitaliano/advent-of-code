@@ -34,7 +34,7 @@ const findSeatRowCoordinate = (boardingPass) => {
 }
 
 const findSeatColumnCoordinate = (boardingPass) => {
-  const columnReference = boardingPass.replace(boardingPass.substr(0,7), "")
+  const columnReference = boardingPass.replace(boardingPass.substr(0, 7), "")
   let column = 0
 
   for (let i = 0; i < columnReference.length; i++) {
@@ -64,7 +64,7 @@ const generateSeatId = (boardingPass) => {
   const row = findSeatRowCoordinate(boardingPass)
   const column = findSeatColumnCoordinate(boardingPass)
 
-  console.log(row * 8 + column)
+  return ((row * 8) + column)
 
 }
 
