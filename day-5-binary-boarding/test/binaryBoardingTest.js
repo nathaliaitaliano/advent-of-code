@@ -57,7 +57,7 @@ describe('BinaryBoarding', function () {
       assert.deepStrictEqual(rangeRowsExpected, rangeRows)
     })
 
-    it('should return a seat row given a boarding pass that have the row reference finished with F letter', function () {
+    it('should return a seat row (with the min value of a range) given a boarding pass that have the row reference finished with F letter', function () {
       const seatRowExpected = 44
       const boardingPass = "FBFBBFFRLR"
       const seatRow = binaryBoarding.findSeatRowCoordinate(boardingPass)
@@ -65,7 +65,7 @@ describe('BinaryBoarding', function () {
       assert.deepStrictEqual(seatRowExpected, seatRow)
     })
 
-    it('should return a seat row given a boarding pass that have the row reference finished with B letter', function () {
+    it('should return a seat row (with the max value of a range) given a boarding pass that have the row reference finished with B letter', function () {
       const seatRowExpected = 45
       const boardingPass = "FBFBBFBRLR"
       const seatRow = binaryBoarding.findSeatRowCoordinate(boardingPass)
@@ -100,6 +100,14 @@ describe('BinaryBoarding', function () {
     it('should return the upper half range columns coordinate, calculate from the range columns result for the letter before, given a boarding passes that columns reference is started by R letter', function () {
       const rangeRowsExpected = [6, 7]
       const boardingPass = "RR"
+      const rangeRows = binaryBoarding.findSeatColumnCoordinate(boardingPass)
+
+      assert.deepStrictEqual(rangeRowsExpected, rangeRows)
+    })
+
+    it('should return seat column coordinate (with the max value of a range), boarding passes that columns reference is finished by R letter', function () {
+      const rangeRowsExpected = 5
+      const boardingPass = "RLR"
       const rangeRows = binaryBoarding.findSeatColumnCoordinate(boardingPass)
 
       assert.deepStrictEqual(rangeRowsExpected, rangeRows)
