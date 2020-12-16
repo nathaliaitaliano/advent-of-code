@@ -73,9 +73,17 @@ describe('BinaryBoarding', function () {
       assert.deepStrictEqual(seatRowExpected, seatRow)
     })
 
-    it('should return a upper half range columns coordinate, based on the ranges columns initial, given a boarding passes that contains a columns reference started by R letter', function () {
+    it('should return a upper half range columns coordinate, based on the range columns initial, given a boarding passes that contains a columns reference started by R letter', function () {
       const seatColumnExpected = [4, 7]
       const boardingPass = "R"
+      const seatColumn = binaryBoarding.findSeatColumnCoordinate(boardingPass)
+
+      assert.deepStrictEqual(seatColumnExpected, seatColumn)
+    })
+
+    it('should return a lower half range columns coordinate, based on the range columns initial, given a boarding passes that contains a columns reference started by L letter', function () {
+      const seatColumnExpected = [0, 3]
+      const boardingPass = "L"
       const seatColumn = binaryBoarding.findSeatColumnCoordinate(boardingPass)
 
       assert.deepStrictEqual(seatColumnExpected, seatColumn)
