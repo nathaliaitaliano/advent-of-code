@@ -8,17 +8,22 @@ const rangeColumnsInitial = () => {
 
 const findSeatCoordinates = (boardingPasses) => {
   let row = []
-  
-  if (boardingPasses[0] === "F") {
-    row = [rangeRowsInitial()[0], Math.floor((rangeRowsInitial()[1] - rangeRowsInitial()[0]) / 2)]
+
+  for (let i = 0; i < boardingPasses.length; i++) {
+    if (i === 0 && boardingPasses[i] === "F") {
+      row = [rangeRowsInitial()[0], Math.floor((rangeRowsInitial()[1] - rangeRowsInitial()[0]) / 2)]
+    }
+    if (i === 0 && boardingPasses[i] === "B") {
+      row = [rangeRowsInitial()[0], Math.ceil((rangeRowsInitial()[1] - rangeRowsInitial()[0]) / 2)]
+    } 
+    if(i != 0 && boardingPasses[i] === "B") {
+      row = [Math.ceil((row[1] - row[0]) / 2), row[1]]
+    }
   }
-  if  (boardingPasses[0] === "G") {
-    row = [rangeRowsInitial()[0], Math.ceil((rangeRowsInitial()[1] - rangeRowsInitial()[0]) / 2)]
-  }
-  return row
+    return row
 }
 
-const generateSeatId = (row, colum) =>{
+const generateSeatId = (row, colum) => {
 
 }
 
