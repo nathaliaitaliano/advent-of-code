@@ -57,9 +57,17 @@ describe('BinaryBoarding', function () {
       assert.deepStrictEqual(rangeRowsExpected, rangeRows)
     })
 
-    it.only('should return a seat row given a boarding pass that is finished with F letter', function () {
+    it('should return a seat row given a boarding pass that have the row reference finished with F letter', function () {
       const seatRowExpected = 44
       const boardingPass = "FBFBBFFRLR"
+      const seatRow = binaryBoarding.findSeatCoordinates(boardingPass)
+
+      assert.deepStrictEqual(seatRowExpected, seatRow)
+    })
+
+    it('should return a seat row given a boarding pass that have the row reference finished with B letter', function () {
+      const seatRowExpected = 45
+      const boardingPass = "FBFBBFBRLR"
       const seatRow = binaryBoarding.findSeatCoordinates(boardingPass)
 
       assert.deepStrictEqual(seatRowExpected, seatRow)
