@@ -9,7 +9,7 @@ const rangeColumnsInitial = () => {
 const findSeatCoordinates = (boardingPass) => {
   const rowCharacters = boardingPass.trim(3)
   console.log(rowCharacters)
-  let row = []
+  let row = 0
 
   for (let i = 0; i < rowCharacters.length; i++) {
     if (i === 0 && rowCharacters[i] === "F") {
