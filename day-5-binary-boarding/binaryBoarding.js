@@ -34,7 +34,7 @@ const findSeatRowCoordinate = (boardingPass) => {
 }
 
 const findSeatColumnCoordinate = (boardingPass) => {
-  const columnReference = boardingPass.substr(boardingPass.length - 3, 3)
+  const columnReference = boardingPass.replace(boardingPass.substr(0,7), "")
   let column = 0
 
   for (let i = 0; i < columnReference.length; i++) {
@@ -60,4 +60,12 @@ const findSeatColumnCoordinate = (boardingPass) => {
   return column
 }
 
-module.exports = { rangeRowsInitial, rangeColumnsInitial, findSeatRowCoordinate, findSeatColumnCoordinate }
+const generateSeatId = (boardingPass) => {
+  const row = findSeatRowCoordinate(boardingPass)
+  const column = findSeatColumnCoordinate(boardingPass)
+
+  console.log(row * 8 + column)
+
+}
+
+module.exports = { rangeRowsInitial, rangeColumnsInitial, findSeatRowCoordinate, findSeatColumnCoordinate, generateSeatId }
