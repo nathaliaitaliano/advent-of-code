@@ -47,6 +47,10 @@ const findSeatColumnCoordinate = (boardingPass) => {
     if (i != 0 && columnReference[i] === "R") {
       column = [Math.ceil((column[1] - column[0]) / 2 + column[0]), column[1]]
     }
+    if (i === 2 && columnReference[i] === "R") {
+      console.log(Math.max.apply(Math, column))
+      column = Math.max.apply(Math, column)
+    }
     if (i === 0 && columnReference[i] === "L") {
       column = [rangeColumnsInitial()[0], Math.floor((rangeColumnsInitial()[1] - rangeColumnsInitial()[0]) / 2 + rangeColumnsInitial()[0])]
     }
