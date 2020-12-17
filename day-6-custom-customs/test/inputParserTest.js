@@ -3,7 +3,15 @@ const inputParser = require('../inputParser')
 
 describe('InputParser', function () {
   describe('parse', function () {
-    it('should return a array with a empty string given a answers data line empty', function () {
+    it('should return a array with a empty string given a answers input data line empty', function () {
+      const answersInputData = [""]
+      const answerDataExpected = [""]
+      const answerData = inputParser.sanitize(answersInputData)
+
+      assert.deepStrictEqual(answerDataExpected, answerData)
+    })
+
+    it('should return a string array with the answers from a passengers group, given an answers input data', function () {
       const answersInputData = [""]
       const answerDataExpected = [""]
       const answerData = inputParser.sanitize(answersInputData)
