@@ -6,7 +6,7 @@ const sanitize = (answersInputData) => {
     if (answersInputData[i] != "") {
       answerGroup += `${answersInputData[i]}`
     }
-    if (answersInputData[i] === "" || i === answersInputData.length -1) {
+    if (answersInputData[i] === "" || i === answersInputData.length - 1) {
       answersData.push(answerGroup.trim())
       answerGroup = ""
     }
