@@ -1,15 +1,16 @@
-const count = (groupAnswers) => {
-  const alphabetLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "w", "v", "x", "y", "z"]
-  let yesAnswers = 0
+const count = (answers) => {
   let questions = []
+  let yesAnswers = 0
 
-  for (let i = 0; i < groupAnswers.length; i++) {
-    if (alphabetLetters.includes(groupAnswers[i])) {
-      if (!questions.includes(groupAnswers[i])) {
-        questions.push(groupAnswers[i])
+  for (let i = 0; i < answers.length; i++) {
+    let groupAnswers = answers[i]
+    for (let k = 0; k < groupAnswers.length; k++) {
+      if (!questions.includes(groupAnswers[k])) {
+        questions.push(groupAnswers[k])
         yesAnswers++
       }
     }
+    questions = []
   }
   return yesAnswers
 }
