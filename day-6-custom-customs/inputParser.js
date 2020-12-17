@@ -2,7 +2,7 @@ const sanitize = (answersInputData) => {
   const answersData = []
   const answerGroupData = ""
 
-  return [""]
+  return [answersInputData[0]]
 }
 
 module.exports = { sanitize }
