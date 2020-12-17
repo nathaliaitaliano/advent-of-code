@@ -3,12 +3,12 @@ const customCustoms = require('../customCustoms')
 
 describe('CustomCustoms', function () {
   describe('count', function () {
-    it('should count +1 for each alphabet letter given a string that contains answers of one group', function () {
-      const answers = "abcdefghijklmnopqrstuvwxyz"
-      const answersYesExpected = 26
-      const answersYes = customCustoms.count(answers)
+    it('should count +1 for each alphabet letter, non repeated, given a string that contains answers of one passengers group', function () {
+      const groupAnswers = "abcdefghijklmnopqrstuvwxyz"
+      const yesAnswersExpected = 26
+      const yesAnswers = customCustoms.count(groupAnswers)
 
-      assert.strictEqual(answersYesExpected, answersYes)
+      assert.strictEqual(yesAnswersExpected, yesAnswers)
     })
   })
 })
