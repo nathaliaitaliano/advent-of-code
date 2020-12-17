@@ -6,5 +6,4 @@ const answersInputData = fs.readFileSync('custom-customs-input').toString().spli
 const answersData = inputParser.sanitize(answersInputData)
 const yesAnswers = customCustoms.count(answersData)
 
-console.log(answersData)
 console.log(yesAnswers)
