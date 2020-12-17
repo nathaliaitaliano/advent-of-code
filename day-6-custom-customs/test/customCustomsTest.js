@@ -10,5 +10,13 @@ describe('CustomCustoms', function () {
 
       assert.strictEqual(yesAnswersExpected, yesAnswers)
     })
+
+    it('shoul count +1 when a letter appear repeatedly, given a string that contains answers of one passengers group', function () {
+      const groupAnswers = "aaabbbccc"
+      const yesAnswersExpected = 3
+      const yesAnswers = customCustoms.count(groupAnswers)
+
+      assert.strictEqual(yesAnswersExpected, yesAnswers)
+    })
   })
 })
