@@ -11,7 +11,15 @@ describe('InputParser', function () {
       assert.deepStrictEqual(answerDataExpected, answerData)
     })
 
-    it('should return an array with answer data from a passengers group given multiple answers groups inputs', function () {
+    it('should return a string array with the answers from a passengers group, given an answers input data', function () {
+      const answersInputData = ["abcdef"]
+      const answerDataExpected = ["abcdef"]
+      const answerData = inputParser.sanitize(answersInputData)
+
+      assert.deepStrictEqual(answerDataExpected, answerData)
+    })
+
+    it('should return a string array with answer data from a passengers group given multiple answers groups inputs', function () {
       const answersInputData = ["abc", "", "def"]
       const answerDataExpected = ["abc", "def"]
       const answerData = inputParser.sanitize(answersInputData)
