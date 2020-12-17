@@ -1,8 +1,12 @@
 const sanitize = (answersInputData) => {
-  const answersData = []
-  const answerGroupData = ""
+  let answersData = []
 
-  return [answersInputData[0]]
+  for (let i = 0; i < answersInputData.length; i++) {
+    if (answersInputData[i] != "") {
+      answersData.push(answersInputData[i])
+    }
+  }
+  return answersData
 }
 
 module.exports = { sanitize }
