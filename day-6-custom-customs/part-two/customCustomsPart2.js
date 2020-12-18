@@ -1,12 +1,12 @@
-const countQuestions = (answers) => {
+const countQuestions = (answersData) => {
   let questionsQuantity = 0
 
-  for (let i = 0; i < answers.length; i++) {
-    const answersGroup = answers[i]
-    if (answers[i].length === 1) {
-      questionsQuantity += answersGroup[i].length
+  for (let i = 0; i < answersData.length; i++) {
+    const answersGroup = answersData[i]
+    if (answersData[i].length === 1) {
+      questionsQuantity += answersGroup[0].split("").length
     }
-    if (answers[i] != 1) {
+    if (answersData[i] != 1) {
       let questions = []
       for (let k = 0; k < answersGroup.length; k++) {
         if (answersGroup[k].length != 1) {

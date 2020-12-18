@@ -11,7 +11,6 @@ const sanitize = (answersInputData) => {
       answersGroup = []
     }
   }
-  console.log(answersData)
   return answersData
 }
 
