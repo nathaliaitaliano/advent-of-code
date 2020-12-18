@@ -7,10 +7,10 @@ const countQuestions = (answers) => {
       questionsQuantity += answersGroup[i].length
     }
     if (answers[i] != 1) {
+      let questions = []
       for (let k = 0; k < answersGroup.length; k++) {
         if (answersGroup[k].length != 1) {
           const answersPerson = answersGroup[k]
-          let questions = []
           let questionsToCompare = answersPerson[0]
           if (k != 0) {
             for (let j = 0; j < answersPerson.length; j++) {
@@ -18,13 +18,12 @@ const countQuestions = (answers) => {
                 questions.push(answersPerson[j])
               }
             }
-            questionsQuantity = + questions.length
           }
         }
       }
+      questionsQuantity += questions.length
     }
   }
-  console.log(questionsQuantity)
   return questionsQuantity
 }
 
