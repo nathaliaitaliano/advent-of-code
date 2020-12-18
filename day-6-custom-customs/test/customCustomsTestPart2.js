@@ -19,12 +19,12 @@ describe('CustomCustomsPart2', function () {
       assert.strictEqual(questionsQuantityExpected, questionsQuantity)
     })
 
-    // it('should return the quantity of questions that have yes answer by each group composed of one person', function () {
-    //   const answers = [["abc"], ["def"]]
-    //   const questionsQuantityExpected = 6
-    //   const questionsQuantity = customCustoms.countQuestions(answers)
+    it('should return the quantity of questions that have yes answer by each group', function () {
+      const answers = [["abc"], ["aef", "agh", "aij"]]
+      const questionsQuantityExpected = 4
+      const questionsQuantity = customCustoms.countQuestions(answers)
 
-    //   assert.strictEqual(questionsQuantityExpected, questionsQuantity)
-    // })
+      assert.strictEqual(questionsQuantityExpected, questionsQuantity)
+    })
   })
 })
