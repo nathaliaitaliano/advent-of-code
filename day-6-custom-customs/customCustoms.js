@@ -1,18 +1,15 @@
 const count = (answers) => {
-  let questions = []
-  let yesAnswers = 0
+  const questions = []
+  const isNewQuestion = answer => !questions.includes(answer)
 
-  for (let i = 0; i < answers.length; i++) {
-    let groupAnswers = answers[i]
-    for (let k = 0; k < groupAnswers.length; k++) {
-      if (!questions.includes(groupAnswers[k])) {
-        questions.push(groupAnswers[k])
-        yesAnswers++
+  answers.forEach(answersGroup => {
+    answersGroup.split("").forEach(answer => {
+      if (isNewQuestion(answer)) {
+        questions.push(answer)
       }
-    }
-    questions = []
-  }
-  return yesAnswers
+    })
+  })
+  return questions.length
 }
 
 module.exports = { count }
