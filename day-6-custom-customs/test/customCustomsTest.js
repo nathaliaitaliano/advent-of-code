@@ -21,7 +21,7 @@ describe('CustomCustoms', function () {
 
     it('should return yes answers quantity for all passengers group given a array that contains the answers', function () {
       const answers = ["aaabc", "deefh", "oobb"]
-      const yesAnswersExpected = 9
+      const yesAnswersExpected = 8
       const yesAnswers = customCustoms.count(answers)
 
       assert.strictEqual(yesAnswersExpected, yesAnswers)
