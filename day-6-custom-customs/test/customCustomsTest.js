@@ -1,5 +1,5 @@
 const assert = require('assert')
-const customCustoms = require('../customCustoms')
+const customCustoms = require('../part-one/customCustoms')
 
 describe('CustomCustoms', function () {
   describe('count', function () {
