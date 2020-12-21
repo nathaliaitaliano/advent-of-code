@@ -8,7 +8,7 @@ const countQuestions = (allAnswers) => {
   let questionsQuantity = 0
   allAnswers.forEach(answers => {
     questionsQuantity += countQuestionsPerGroup(answers)
-  });
+  })
   return questionsQuantity
 }
 
