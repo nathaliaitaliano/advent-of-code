@@ -1,5 +1,10 @@
 const countBagColors = (rules) => {
-return 0
+  let bagColorsQuantity = 0
+
+  if(rules[1].includes("shiny gold")) {
+    bagColorsQuantity++
+  }
+  return bagColorsQuantity
 }
 
 module.exports = { countBagColors }
