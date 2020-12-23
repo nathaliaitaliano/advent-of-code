@@ -10,13 +10,13 @@ const sanitize = (handyHaversacksInput) => {
 
 const parse = (handyHaversacksInput) => {
   const handyHaversacks = sanitize(handyHaversacksInput)
-  let handyHaversacksRules = []
+  let rules = []
 
   handyHaversacks.forEach(handyHaversack => {
     const rule = handyHaversack.split(" contain ")
-    handyHaversacksRules.push(rule)
+    rules.push(rule)
   })
-  return handyHaversacksRules
+  return rules
 }
 
 module.exports = { sanitize, parse }
