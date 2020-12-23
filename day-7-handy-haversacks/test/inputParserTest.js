@@ -24,7 +24,7 @@ describe('InputParser', function () {
     it('should return an array with two elements (bag color, bags colors able to contain) given a one only rule data', function () {
       const handyHaversacksInput = ["light red bags contain 1 bright white bag, 2 muted yellow bags"]
       const handyHaversacksExpected = [["light red", "1 bright white, 2 muted yellow"]]
-      const handyHaversacks = inputParser.sanitize(handyHaversacksInput)
+      const handyHaversacks = inputParser.parse(handyHaversacksInput)
 
       assert.deepStrictEqual(handyHaversacksExpected, handyHaversacks)
     })
