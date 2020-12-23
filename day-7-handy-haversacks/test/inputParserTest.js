@@ -10,5 +10,13 @@ describe('InputParser', function () {
 
       assert.strictEqual(handyHaversacksExpected, handyHaversacks)
     })
+
+    it('should remove the bags word given an handy haversacks input', function () {
+      const handyHaversacksInput = "light red bags contain 1 bright white bag, 2 muted yellow bags."
+      const handyHaversacksExpected = "light red contain 1 bright white bag, 2 muted yellow"
+      const handyHaversacks = inputParser.sanitize(handyHaversacksInput)
+
+      assert.strictEqual(handyHaversacksExpected, handyHaversacks)
+    })
   })
 })
