@@ -6,10 +6,11 @@ const countBagColors = (rules) => {
       if (rule[1].includes(bag) && !bagsToSearch.includes(rule[0])) {
           bagsToSearch.push(rule[0])
       }
-      
+
     })
   })
-  return bagsToSearch.length -1
+  bagsToSearch.shift()
+  return bagsToSearch.length
 }
 
 module.exports = { countBagColors }
