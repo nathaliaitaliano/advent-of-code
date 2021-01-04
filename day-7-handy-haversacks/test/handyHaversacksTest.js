@@ -3,7 +3,7 @@ const handyHaversacks = require('../handyHaversacks')
 
 describe('HandyHaversacks', function () {
   describe('countBagColors', function () {
-    it.only('should return zero bag colors given a rule that a bag not be able to contain other bags', function () {
+    it('should return zero bag colors given a rule that a bag not be able to contain other bags', function () {
       const rules = new Map()
       rules.set("dotted black", "no other")
       const targetBag = "shiny gold"
@@ -16,19 +16,22 @@ describe('HandyHaversacks', function () {
     it('should return zero bag colors given a rule that a bag not contains a shiny gold bag', function () {
       const rules = new Map()
       rules.set("vibrant plum", "1 faded blue, 6 dotted black")
+      const targetBag = "shiny gold"
       const bagColorsQuantityExpected = 0
-      const bagColorsQuantity = handyHaversacks.countBagColors(rules)
+      const bagColorsQuantity = handyHaversacks.countBagColors(rules, targetBag)
 
       assert.strictEqual(bagColorsQuantityExpected, bagColorsQuantity)
     })
 
-    // it('should return bag colors quantity given a rule that a bag contains directly a shiny gold bag', function () {
-    //   const rules = [["bright white", "1 shiny gold"]]
-    //   const bagColorsQuantityExpected = 1
-    //   const bagColorsQuantity = handyHaversacks.countBagColors(rules)
+    it('should return bag colors quantity given a rule that a bag contains directly a shiny gold bag', function () {
+      const rules = new Map
+      rules.set("bright white", "1 shiny gold")
+      const targetBag = "shiny gold"
+      const bagColorsQuantityExpected = 1
+      const bagColorsQuantity = handyHaversacks.countBagColors(rules, targetBag)
 
-    //   assert.strictEqual(bagColorsQuantityExpected, bagColorsQuantity)
-    // })
+      assert.strictEqual(bagColorsQuantityExpected, bagColorsQuantity)
+    })
 
     // it('should return bag colors quantity given a rule that a bag contains indirectly a shiny gold bag', function () {
     //   const rules = [["bright white", "1 shiny gold bag"], ["dark orange", "3 bright white, 4 muted yellow"]]
