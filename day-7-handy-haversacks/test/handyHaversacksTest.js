@@ -2,6 +2,16 @@ const assert = require('assert')
 const handyHaversacks = require('../handyHaversacks')
 
 describe('HandyHaversacks', function() {
+  describe('bagsTosearch', function() {
+    it.only('should return zero bag colors given a rule that a bag not be able to contain other bags', function () {
+      const rules = [["muted yellow", "2 shiny gold, 9 faded blue"], ["bright white", "1 shiny gold"], ["dark orange", "3 bright white, 4 muted yellow"], ["light red", "1 bright white, 2 muted yellow"]]
+      const bagColorsExpected = ["muted yellow", "bright white", "dark orange", "light red"]
+      const bagColors = handyHaversacks.bagsToSearch(rules)
+
+      assert.deepStrictEqual(bagColorsExpected, bagColors)
+    })
+  })
+
   describe('countBagColors', function() {
     it('should return zero bag colors given a rule that a bag not be able to contain other bags', function () {
       const rules = ["dotted black", "no other"]
