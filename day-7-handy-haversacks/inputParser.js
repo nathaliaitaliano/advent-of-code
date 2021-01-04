@@ -1,5 +1,5 @@
 const sanitize = (handyHaversacksInput) => {
-  let handyHaversacks = []
+  const handyHaversacks = []
 
   handyHaversacksInput.forEach(handyHaversack => {
     const handyHaversackSanitized = handyHaversack.replace(/ bag(s)?/gi, "")
@@ -10,11 +10,11 @@ const sanitize = (handyHaversacksInput) => {
 
 const parse = (handyHaversacksInput) => {
   const handyHaversacks = sanitize(handyHaversacksInput)
-  let rules = []
+  const rules = new Map()
 
   handyHaversacks.forEach(handyHaversack => {
     const rule = handyHaversack.split(" contain ")
-    rules.push(rule)
+    rules.set(rule[0], rule[1])
   })
   return rules
 }
