@@ -1,4 +1,4 @@
-const countBagColors = (bag, targetBag) => {
+const countBagColors = (rules, targetBag) => {
   return 0
 }
 
