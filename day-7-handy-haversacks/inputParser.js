@@ -2,7 +2,7 @@ const sanitize = (handyHaversacksInput) => {
   const handyHaversacks = []
 
   handyHaversacksInput.forEach(handyHaversack => {
-    const handyHaversackSanitized = handyHaversack.replace(/ bag(s)?/gi, "")
+    const handyHaversackSanitized = handyHaversack.replace(/ bag(s)?/gi, "").replace(/ \d/gi, "").replace(".", "")
     handyHaversacks.push(handyHaversackSanitized)
   })
   return handyHaversacks
@@ -14,7 +14,12 @@ const parse = (handyHaversacksInput) => {
 
   handyHaversacks.forEach(handyHaversack => {
     const rule = handyHaversack.split(" contain ")
-    rules.set(rule[0], rule[1])
+    if (rule[1] === "no other") {
+      rule[1] = []
+      rules.set(rule[0], rule[1])
+    } else {
+      rules.set(rule[0], rule[1].split(", "))
+    }
   })
   return rules
 }
