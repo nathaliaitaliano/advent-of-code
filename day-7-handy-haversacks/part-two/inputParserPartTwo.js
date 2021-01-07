@@ -8,4 +8,19 @@ const sanitize = handyHaversacksInput => {
   return rules
 }
 
-module.exports = { sanitize }
+const parse = handyHaversacksInput => {
+  const handyHaversacks = sanitize(handyHaversacksInput)
+  const rules = new Map()
+
+  handyHaversacks.forEach(handyHaversackRule => {
+    const rule = handyHaversackRule.split(" contain ")
+
+    if (rule[1] === "no other") {
+      rule[1] = [0]
+      rules.set(rule[0], rule[1])
+    }
+  })
+  return rules
+}
+
+module.exports = { sanitize, parse }
