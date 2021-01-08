@@ -14,23 +14,25 @@ const parse = handyHaversacksInput => {
 
   handyHaversacks.forEach(handyHaversackRule => {
     const rule = handyHaversackRule.split(" contain ")
+    const bag = rule[0]
+    let bagContent = rule[1]
 
-    if (rule[1] === "no other") {
-      rule[1] = [{
-        bagContentColor: [],
+    if (bagContent === "no other") {
+      bagContent = [{
+        color: [],
         quantity: 0
       }]
-      rules.set(rule[0], rule[1])
+      rules.set(bag, bagContent)
     } else {
       const bagContents = rule[1].split(", ")
-      rule[1] = []
-      bagContents.forEach(bagContent =>
-        rule[1].push({
-          bagContentColor: bagContent.substring(2, bagContent.length),
-          quantity: Number(bagContent.substring(0, 1))
+      bagContent = []
+      bagContents.forEach(bag =>
+        bagContent.push({
+          color: bag.substring(2, bag.length),
+          quantity: Number(bag.substring(0, 1))
         })
       )
-      rules.set(rule[0], rule[1])
+      rules.set(bag, bagContent)
     }
   })
   return rules
