@@ -17,7 +17,7 @@ const parse = handyHaversacksInput => {
 
     if (rule[1] === "no other") {
       rule[1] = {
-        bagColor: [],
+        bagContentColor: [],
         quantity: 0
       }
       rules.set(rule[0], rule[1])
