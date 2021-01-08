@@ -16,7 +16,10 @@ const parse = handyHaversacksInput => {
     const rule = handyHaversackRule.split(" contain ")
 
     if (rule[1] === "no other") {
-      rule[1] = [0]
+      rule[1] = {
+        bagColor: [],
+        quantity: 0
+      }
       rules.set(rule[0], rule[1])
     }
   })
