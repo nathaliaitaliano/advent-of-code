@@ -23,7 +23,7 @@ const parse = handyHaversacksInput => {
       rules.set(rule[0], rule[1])
     } else {
       rule[1] = {
-        bagColor: rule[1].substring(2, rule[1].length),
+        bagContentColor: rule[1].substring(2, rule[1].length),
         quantity: Number(rule[1].substring(0, 1))
       }
       rules.set(rule[0], rule[1])
