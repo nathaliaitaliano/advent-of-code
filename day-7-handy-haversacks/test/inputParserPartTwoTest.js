@@ -39,7 +39,7 @@ describe('InputParser', function () {
       assert.deepStrictEqual(ruleExpected, rule)
     })
 
-    it('should return a map with the rules for a bag given a handy haversacks rule that contains more then one bag', function () {
+    it('should return a map with the rules for a bag given a handy haversacks rule that contains more than one bag', function () {
       const handyHaversacksInput = ["muted yellow bags contain 2 shiny gold bags, 9 faded blue bags."]
       const ruleExpected = new Map()
       ruleExpected.set("muted yellow", [{ bagContentColor: "shiny gold", quantity: 2 }, { bagContentColor: "faded blue", quantity: 9 }])
