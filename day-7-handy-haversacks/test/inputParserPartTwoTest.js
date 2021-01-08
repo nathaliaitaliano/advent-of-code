@@ -21,10 +21,19 @@ describe('InputParser', function () {
   })
 
   describe('parse', function () {
-    it("should return a map with a value equal to zero given a handy haversacks rule that does not contains another bag", function () {
+    it('should return a map with a value equal to zero given a handy haversacks rule that does not contains another bag', function () {
       const handyHaversacksInput = ["dark violet bags contain no other bags."]
       const ruleExpected = new Map()
-      ruleExpected.set("dark violet", { bagColor: [], quantity: 0})
+      ruleExpected.set("dark violet", { bagColor: [], quantity: 0 })
+      const rule = inputParser.parse(handyHaversacksInput)
+
+      assert.deepStrictEqual(ruleExpected, rule)
+    })
+
+    it('should return a map with the rules for a bag given a handy haversacks rule that contains just one bag', function () {
+      const handyHaversacksInput = ["dark orange bags contain 2 dark yellow bags."]
+      const ruleExpected = new Map()
+      ruleExpected.set("dark orange", { bagColor: "dark yellow", quantity: 2 })
       const rule = inputParser.parse(handyHaversacksInput)
 
       assert.deepStrictEqual(ruleExpected, rule)
