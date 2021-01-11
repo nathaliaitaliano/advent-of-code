@@ -11,7 +11,7 @@ describe('HandyHaversacks', function () {
       assert.strictEqual(bagsQuantityExpected, bagsQuantity)
     })
 
-    it('should return 2 for a quantity of bags that a shiny gold bag require inside given a rule where a shiny gold bag contains just one bag', function () {
+    it('should return 2 for a quantity of bags that a shiny gold bag require inside given a rule where a shiny gold bag contains another bag', function () {
       const rules = { "shiny gold": [{ color: "dark red", quantity: 1 }], "dark red": [{ color: "dark orange", quantity: 1 }], "dark orange": [{ color: [], quantity: 0 }] }
       const bagsQuantityExpected = 2
       const bagsQuantity = handyHaversacks.countBags(rules)
