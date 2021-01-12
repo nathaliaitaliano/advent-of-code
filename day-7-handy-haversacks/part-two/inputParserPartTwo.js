@@ -10,20 +10,20 @@ const sanitize = handyHaversacksInput => {
 
 const parse = handyHaversacksInput => {
   const handyHaversacks = sanitize(handyHaversacksInput)
-  const rules = new Map()
+  const rules = {}
 
   handyHaversacks.forEach(handyHaversackRule => {
     const rule = handyHaversackRule.split(" contain ")
     const bag = rule[0]
     const bagContent = parseBagContent(rule[1])
-    rules.set(bag, bagContent)
+    rules[bag] = bagContent
   })
   return rules
 }
 
 const parseBagContent = content => {
   if (content === "no other") {
-    return [{ color: [], quantity: 0 }]
+    return []
   }
   return content.split(", ").map(bag => ({
     color: bag.substring(2, bag.length),
