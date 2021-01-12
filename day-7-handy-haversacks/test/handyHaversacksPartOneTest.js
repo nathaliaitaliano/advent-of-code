@@ -1,5 +1,5 @@
 const assert = require('assert')
-const handyHaversacks = require('../handyHaversacks')
+const handyHaversacks = require('../part-one/handyHaversacks')
 
 describe('HandyHaversacks', function () {
   describe('countBagColors', function () {
