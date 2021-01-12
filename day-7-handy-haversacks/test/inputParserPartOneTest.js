@@ -1,5 +1,5 @@
 const assert = require('assert')
-const inputParser = require('../inputParser')
+const inputParser = require('../part-one/inputParser')
 
 describe('InputParser', function () {
   describe('sanitize', function () {
