@@ -5,7 +5,7 @@ describe('parse', function () {
   it('should return a map with a value equal to zero given a handy haversacks rule that does not contains another bag', function () {
     const handyHaversacksInput = ["dark violet bags contain no other bags."]
     const ruleExpected = new Map()
-    ruleExpected.set("dark violet", [{ color: [], quantity: 0 }])
+    ruleExpected.set("dark violet", [])
     const rule = inputParser.parse(handyHaversacksInput)
 
     assert.deepStrictEqual(ruleExpected, rule)
