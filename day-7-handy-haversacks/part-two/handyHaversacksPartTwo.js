@@ -1,10 +1,9 @@
-const countBags = rules => {
+const countBags = (rules, targetBag) => {
   let bagsQuantity = 0
-  const bagsColors = Object.keys(rules)
-  bagsColors.forEach(bag => {
-    console.log(bag)
-    bagsQuantity += rules[bag][0].quantity
+  rules[targetBag].forEach(bagContent => {
+    bagsQuantity += bagContent.quantity + (bagContent.quantity * countBags(rules, bagContent.color))
   })
+
   return bagsQuantity
 }
 
