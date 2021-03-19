@@ -1,7 +1,6 @@
 {
   "name": "day-8-handheld-halting",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
@@ -11,5 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "mocha": "^8.2.1"
-  }
+  },
+  "description": ""
 }
