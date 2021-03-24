@@ -34,5 +34,13 @@ describe('HandheldHalting', function () {
 
       assert.strictEqual(accumulator, accumulatorExpected);
     })
+
+    it('should pass to the next instruction given an instruction with operation: "nop"', function () {
+      const instructions = [{ operation: "acc", argument: 5 }, { operation: "acc", argument: -2 }, { operation: "nop", argument: +0 }];
+      const accumulatorExpected = 3;
+      const accumulator = handheldHalting.calculateAccumulatorValue(instructions);
+
+      assert.strictEqual(accumulator, accumulatorExpected);
+    })
   })
 })
