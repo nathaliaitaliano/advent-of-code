@@ -28,7 +28,10 @@ describe('HandheldHalting', function () {
     })
 
     it('should sum accumulator value given more than one instruction with operation: "acc" and argument: 2', function () {
-      const instructions = [{ operation: "acc", argument: 5 }, { operation: "acc", argument: -2 }];
+      const instructions = [
+        { operation: "acc", argument: 5 },
+        { operation: "acc", argument: -2 }
+      ];
       const accumulatorExpected = 3;
       const accumulator = handheldHalting.calculateAccumulatorValue(instructions);
 
@@ -36,8 +39,27 @@ describe('HandheldHalting', function () {
     })
 
     it('should pass to the next instruction given an instruction with operation: "nop"', function () {
-      const instructions = [{ operation: "acc", argument: 5 }, { operation: "acc", argument: -2 }, { operation: "nop", argument: +0 }];
+      const instructions = [
+        { operation: "acc", argument: 5 },
+        { operation: "acc", argument: -2 },
+        { operation: "nop", argument: 0 }
+      ];
       const accumulatorExpected = 3;
+      const accumulator = handheldHalting.calculateAccumulatorValue(instructions);
+
+      assert.strictEqual(accumulator, accumulatorExpected);
+    })
+
+    it.only('should jump instructions given an instruction with operation: "jump"', function () {
+      const instructions = [
+        { operation: "acc", argument: 5 },
+        { operation: "acc", argument: -2 },
+        { operation: "nop", argument: 0 },
+        { operation: "jmp", argument: 2 },
+        { operation: "acc", argument: 4 },
+        { operation: "acc", argument: 1 }
+      ];
+      const accumulatorExpected = 4;
       const accumulator = handheldHalting.calculateAccumulatorValue(instructions);
 
       assert.strictEqual(accumulator, accumulatorExpected);
