@@ -18,5 +18,13 @@ describe('HandheldHalting', function () {
 
       assert.strictEqual(accumulator, accumulatorExpected);
     })
+
+    it('should sum -1 on accumulator value given an instruction with operation: "acc" and argument: 2', function () {
+      const instructions = [{ operation: "acc", argument: -1 }];
+      const accumulatorExpected = -1;
+      const accumulator = handheldHalting.calculateAccumulatorValue(instructions);
+
+      assert.strictEqual(accumulator, accumulatorExpected);
+    })
   })
 })
