@@ -50,7 +50,7 @@ describe('HandheldHalting', function () {
       assert.strictEqual(accumulator, accumulatorExpected);
     })
 
-    it.only('should jump instructions given an instruction with operation: "jump"', function () {
+    it.only('should jump instructions given an instruction with operation: "jmp"', function () {
       const instructions = [
         { operation: "acc", argument: 5 },
         { operation: "acc", argument: -2 },
