@@ -11,7 +11,7 @@ describe('HandheldHalting', function () {
       assert.strictEqual(accumulator, accumulatorExpected);
     })
 
-    it('should sum +2 on accumulator value given an instruction with operation: "acc" and argument: 2', function () {
+    it('should sum +2 to accumulator value given an instruction with operation: "acc" and argument: 2', function () {
       const instructions = [{ operation: "acc", argument: 2 }];
       const accumulatorExpected = 2;
       const accumulator = handheldHalting.calculateAccumulatorValue(instructions);
@@ -19,9 +19,17 @@ describe('HandheldHalting', function () {
       assert.strictEqual(accumulator, accumulatorExpected);
     })
 
-    it('should sum -1 on accumulator value given an instruction with operation: "acc" and argument: 2', function () {
+    it('should sum -1 to accumulator value given an instruction with operation: "acc" and argument: 2', function () {
       const instructions = [{ operation: "acc", argument: -1 }];
       const accumulatorExpected = -1;
+      const accumulator = handheldHalting.calculateAccumulatorValue(instructions);
+
+      assert.strictEqual(accumulator, accumulatorExpected);
+    })
+
+    it('should sum accumulator value given more than one instruction with operation: "acc" and argument: 2', function () {
+      const instructions = [{ operation: "acc", argument: 5 }, { operation: "acc", argument: -2 }];
+      const accumulatorExpected = 3;
       const accumulator = handheldHalting.calculateAccumulatorValue(instructions);
 
       assert.strictEqual(accumulator, accumulatorExpected);
