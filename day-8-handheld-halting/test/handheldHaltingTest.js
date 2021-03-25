@@ -1,5 +1,5 @@
-const assert = require('assert')
-const handheldHalting = require('../handheldHalting')
+const assert = require('assert');
+const handheldHalting = require('../handheldHalting');
 
 describe('HandheldHalting', function () {
   describe('calculateAccumulatorValue', function () {
@@ -11,7 +11,7 @@ describe('HandheldHalting', function () {
       assert.strictEqual(accumulator, accumulatorExpected);
     })
 
-    it('should sum +2 to accumulator value given an instruction with operation: "acc" and argument: 2', function () {
+    it('should sum 2 to accumulator value given an instruction with operation: "acc" and argument: 2', function () {
       const instructions = [{ operation: "acc", argument: 2 }];
       const accumulatorExpected = 2;
       const accumulator = handheldHalting.calculateAccumulatorValue(instructions);
@@ -19,7 +19,7 @@ describe('HandheldHalting', function () {
       assert.strictEqual(accumulator, accumulatorExpected);
     })
 
-    it('should sum -1 to accumulator value given an instruction with operation: "acc" and argument: 2', function () {
+    it('should sum -1 to accumulator value given an instruction with operation: "acc" and argument: -1', function () {
       const instructions = [{ operation: "acc", argument: -1 }];
       const accumulatorExpected = -1;
       const accumulator = handheldHalting.calculateAccumulatorValue(instructions);
