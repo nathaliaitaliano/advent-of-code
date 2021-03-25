@@ -3,8 +3,8 @@ const handheldHalting = require('../handheldHalting')
 
 describe('HandheldHalting', function () {
   describe('calculateAccumulatorValue', function () {
-    xit('should return value 0 for the accumulator(ACC) before starts run the instructions', function () {
-      const instructions = [{ operation: "acc", argument: 2 }];
+    it('should return value 0 for the accumulator(ACC) before starts run the instructions', function () {
+      const instructions = [{}];
       const accumulatorExpected = 0;
       const accumulator = handheldHalting.calculateAccumulatorValue(instructions);
 
@@ -72,6 +72,20 @@ describe('HandheldHalting', function () {
         { operation: "acc", argument: 1 },
       ];
       const accumulatorExpected = 2;
+      const accumulator = handheldHalting.calculateAccumulatorValue(instructions);
+
+      assert.strictEqual(accumulator, accumulatorExpected);
+    })
+
+    it('should return the final valuer for accumulator before starts the first repeated instruction', function () {
+      const instructions = [
+        { operation: "acc", argument: 1 },
+        { operation: "jmp", argument: 2 },
+        { operation: "acc", argument: 2 },
+        { operation: "acc", argument: 1 },
+        { operation: "jmp", argument: -2 }
+      ];
+      const accumulatorExpected = 4;
       const accumulator = handheldHalting.calculateAccumulatorValue(instructions);
 
       assert.strictEqual(accumulator, accumulatorExpected);
