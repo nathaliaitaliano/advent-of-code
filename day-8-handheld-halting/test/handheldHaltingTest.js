@@ -63,15 +63,15 @@ describe('HandheldHalting', function () {
       assert.strictEqual(accumulator, accumulatorExpected);
     })
 
-    it('should jump for the previous instructions given an instruction with operation: "jmp" with a negative value for argument', function () {
+    it('should jump for the previous instruction given an instruction with operation: "jmp" with a negative value for argument', function () {
       const instructions = [
         { operation: "acc", argument: 1 },
         { operation: "jmp", argument: 2 },
-        { operation: "acc", argument: 2 },
+        { operation: "jmp", argument: 2 },
+        { operation: "jmp", argument: -1 },
         { operation: "acc", argument: 1 },
-        { operation: "jmp", argument: -2 }
       ];
-      const accumulatorExpected = 4;
+      const accumulatorExpected = 2;
       const accumulator = handheldHalting.calculateAccumulatorValue(instructions);
 
       assert.strictEqual(accumulator, accumulatorExpected);

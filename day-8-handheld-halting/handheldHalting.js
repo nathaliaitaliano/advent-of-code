@@ -1,11 +1,9 @@
 const calculateAccumulatorValue = (instructions) => {
   let accumulator = 0;
   let index = 0;
-  const indexOfInstructionsExecuted = [];
 
   do {
     const instruction = instructions[index];
-    indexOfInstructionsExecuted.push(index);
 
     if (instruction.operation === "acc") {
       accumulator += instruction.argument;
@@ -15,7 +13,7 @@ const calculateAccumulatorValue = (instructions) => {
     } else {
       index += 1;
     }
-  } while (!indexOfInstructionsExecuted.includes(index) && index < instructions.length);
+  } while (index < instructions.length);
   return accumulator;
 }
 
