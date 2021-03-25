@@ -1,14 +1,9 @@
-const parse = (instructionsInput) => {
-  const instructions = [];
+const parse = (instructionsInput) => instructionsInput.map(instructions => {
+    const instruction = instructions.split(" ");
+    const operationValue = instruction[0];
+    const argumentValue = Number(instruction[1]);
 
-  instructionsInput.forEach(instructionInput => {
-    const instruction = instructionInput.split(" ");
-    const instructionOperation = instruction[0];
-    const instructionArgument = Number(instruction[1]);
-
-    instructions.push({ operation: instructionOperation, argument: instructionArgument });
-  });
-  return instructions;
-}
+    return { operation: operationValue, argument: argumentValue };
+  })
 
 module.exports = { parse };
