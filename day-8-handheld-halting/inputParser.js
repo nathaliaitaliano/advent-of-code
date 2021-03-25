@@ -1,9 +1,14 @@
 const parse = (instructionsInput) => {
-  const input = instructionsInput.split(":");
-  const instructionOperation = input[0];
-  const instructionArgument = Number(input[1]);
+  const instructions = [];
 
-  const instructions = [{ operation: instructionOperation, argument: instructionArgument }];
+  instructionsInput.forEach(instructionInput => {
+    const instruction = instructionInput.split(":");
+    const instructionOperation = instruction[0];
+    const instructionArgument = Number(instruction[1]);
+
+    instructions.push({ operation: instructionOperation, argument: instructionArgument });
+
+  });
   return instructions;
 }
 
