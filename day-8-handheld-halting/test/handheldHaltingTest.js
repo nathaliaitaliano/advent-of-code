@@ -53,11 +53,23 @@ describe('HandheldHalting', function () {
     it('should jump for the next instructions given an instruction with operation: "jmp" with a positive value for argument', function () {
       const instructions = [
         { operation: "acc", argument: 5 },
-        { operation: "acc", argument: -2 },
-        { operation: "nop", argument: 0 },
         { operation: "jmp", argument: 2 },
-        { operation: "acc", argument: 4 },
+        { operation: "nop", argument: 0 },
         { operation: "acc", argument: 1 }
+      ];
+      const accumulatorExpected = 6;
+      const accumulator = handheldHalting.calculateAccumulatorValue(instructions);
+
+      assert.strictEqual(accumulator, accumulatorExpected);
+    })
+
+    it('should jump for the previous instructions given an instruction with operation: "jmp" with a negative value for argument', function () {
+      const instructions = [
+        { operation: "acc", argument: 1 },
+        { operation: "jmp", argument: 2 },
+        { operation: "acc", argument: 2 },
+        { operation: "acc", argument: 1 },
+        { operation: "jmp", argument: -2 }
       ];
       const accumulatorExpected = 4;
       const accumulator = handheldHalting.calculateAccumulatorValue(instructions);
