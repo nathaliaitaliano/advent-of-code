@@ -1,5 +1,5 @@
 const assert = require('assert');
-const handheldHalting = require('../handheldHalting');
+const handheldHalting = require('../part-one/handheldHalting');
 
 describe('HandheldHalting', function () {
   describe('calculateAccumulatorValue', function () {
