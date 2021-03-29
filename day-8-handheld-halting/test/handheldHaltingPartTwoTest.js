@@ -78,8 +78,8 @@ describe('HandheldHalting', function () {
     })
   })
 
-  describe('hasAnInfiniteLoop', function () {
-    it.only('should return the final value for accumulator after run the last line of the instructions input', function () {
+  describe('isAnInfiniteLoop', function () {
+    it.only('should return true given an infinite loop of instructions', function () {
       const instructions = [
         { operation: "nop", argument: 0 },
         { operation: "acc", argument: 1 },

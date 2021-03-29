@@ -19,4 +19,25 @@ const calculateAccumulatorValue = (instructions) => {
   return accumulator;
 }
 
-module.exports = { calculateAccumulatorValue }
+const isAnInfiniteLoop = (instructions) => {
+  let index = 0;
+  const indexOfInstructionsExecuted = [];
+  const infiniteLoop = true;
+
+  do {
+    const instruction = instructions[index];
+    indexOfInstructionsExecuted.push(index);
+
+    if (indexOfInstructionsExecuted.includes(index)) {
+      return infiniteLoop;
+    }
+    else if (instruction.operation === "jmp") {
+      index += instruction.argument;
+    } else {
+      index += 1;
+    }
+  } while (index < instructions.length);
+  calculateAccumulatorValue(instructions);
+}
+
+module.exports = { calculateAccumulatorValue, isAnInfiniteLoop }
