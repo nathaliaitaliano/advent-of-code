@@ -5,7 +5,6 @@ const calculateAccumulatorValue = (instructions) => {
 
   do {
     const instruction = instructions[index];
-    indexOfInstructionsExecuted.push(index);
 
     if (instruction.operation === "acc") {
       accumulator += instruction.argument;
@@ -15,7 +14,7 @@ const calculateAccumulatorValue = (instructions) => {
     } else {
       index += 1;
     }
-  } while (!indexOfInstructionsExecuted.includes(index) && index < instructions.length);
+  } while (index < instructions.length);
   return accumulator;
 }
 
@@ -26,15 +25,16 @@ const isAnInfiniteLoop = (instructions) => {
 
   do {
     const instruction = instructions[index];
-    indexOfInstructionsExecuted.push(index);
 
     if (indexOfInstructionsExecuted.includes(index)) {
       return infiniteLoop;
-    }
-    else if (instruction.operation === "jmp") {
-      index += instruction.argument;
     } else {
-      index += 1;
+      indexOfInstructionsExecuted.push(index);
+      if (instruction.operation === "jmp") {
+        index += instruction.argument;
+      } else {
+        index += 1;
+      }
     }
   } while (index < instructions.length);
   calculateAccumulatorValue(instructions);

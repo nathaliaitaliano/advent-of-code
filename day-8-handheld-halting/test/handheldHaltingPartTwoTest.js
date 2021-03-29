@@ -69,7 +69,7 @@ describe('HandheldHalting', function () {
         { operation: "jmp", argument: 2 },
         { operation: "jmp", argument: 2 },
         { operation: "jmp", argument: -1 },
-        { operation: "acc", argument: 1 },
+        { operation: "acc", argument: 1 }
       ];
       const accumulatorExpected = 2;
       const accumulator = handheldHalting.calculateAccumulatorValue(instructions);
@@ -86,7 +86,7 @@ describe('HandheldHalting', function () {
         { operation: "jmp", argument: 4 },
         { operation: "acc", argument: 3 },
         { operation: "jmp", argument: -3 },
-        { operation: "acc", argument: -99 },
+        { operation: "nop", argument: 0 },
         { operation: "acc", argument: 1 },
         { operation: "jmp", argument: -4 },
         { operation: "acc", argument: 6 }
