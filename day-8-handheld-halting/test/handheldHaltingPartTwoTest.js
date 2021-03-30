@@ -79,7 +79,7 @@ describe('HandheldHalting', function () {
   })
 
   describe('isAnInfiniteLoop', function () {
-    it.only('should return true given an infinite loop of instructions', function () {
+    it('should return true for infinite loop given an input of instructions', function () {
       const instructions = [
         { operation: "nop", argument: 0 },
         { operation: "acc", argument: 1 },
@@ -91,9 +91,26 @@ describe('HandheldHalting', function () {
         { operation: "jmp", argument: -4 },
         { operation: "acc", argument: 6 }
       ];
-      const infiniteLoop = handheldHalting.isAnInfiniteLoop(instructions);
+      const isAnInfiniteLoop = handheldHalting.isAnInfiniteLoop(instructions);
 
-      assert.ok(infiniteLoop);
+      assert.ok(isAnInfiniteLoop.hasInfiniteLoop);
+    })
+
+    it('should return false for infinit loop given an input of instructions', function () {
+      const instructions = [
+        { operation: "nop", argument: 0 },
+        { operation: "acc", argument: 1 },
+        { operation: "jmp", argument: 4 },
+        { operation: "acc", argument: 3 },
+        { operation: "jmp", argument: -3 },
+        { operation: "nop", argument: 0 },
+        { operation: "acc", argument: 1 },
+        { operation: "nop", argument: -4 },
+        { operation: "acc", argument: 6 }
+      ];
+      const debugResult = handheldHalting.debug(instructions);
+
+      assert.strictEqual(debugResult.hasInfiniteLoop, false);
     })
   })
 })

@@ -21,26 +21,28 @@ const calculateAccumulatorValue = (instructions) => {
   }
 }
 
-const isAnInfiniteLoop = (instructions) => {
+const isAnInfiniteLoop = instructions => debug(instructions);
+
+const debug = instructions => {
   let index = 0;
   const indexOfInstructionsExecuted = [];
+  let isAnInfiniteLoop = false
 
   do {
     const instruction = instructions[index];
-    const isAnInfiniteLoop = indexOfInstructionsExecuted.includes(index);
-
-    if (!isAnInfiniteLoop) {
-      indexOfInstructionsExecuted.push(index);
-      if (instruction.operation === "jmp") {
-        index += instruction.argument;
-      } else {
-        index += 1;
-      }
+    indexOfInstructionsExecuted.push(index);
+    if (instruction.operation === "jmp") {
+      index += instruction.argument;
     } else {
-      return isAnInfiniteLoop;
+      index += 1;
     }
-  } while (index < instructions.length);
-  return !isAnInfiniteLoop;
+    isAnInfiniteLoop = indexOfInstructionsExecuted.includes(index);
+  } while (index < instructions.length && !isAnInfiniteLoop);
+
+  return {
+    hasInfiniteLoop: isAnInfiniteLoop,
+    executedInstructions: indexOfInstructionsExecuted
+  }
 }
 
 module.exports = { calculateAccumulatorValue, isAnInfiniteLoop }
