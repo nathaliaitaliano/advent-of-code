@@ -1,5 +1,5 @@
 const assert = require('assert');
-const handheldHalting = require('../handheldHalting');
+const handheldHalting = require('../part-one/handheldHalting');
 
 describe('HandheldHalting', function () {
   describe('calculateAccumulatorValue', function () {
@@ -77,7 +77,7 @@ describe('HandheldHalting', function () {
       assert.strictEqual(accumulator, accumulatorExpected);
     })
 
-    it('should return the final valuer for accumulator before starts the first repeated instruction', function () {
+    it('should return the final value for accumulator before starts the first repeated instruction', function () {
       const instructions = [
         { operation: "acc", argument: 1 },
         { operation: "jmp", argument: 2 },
