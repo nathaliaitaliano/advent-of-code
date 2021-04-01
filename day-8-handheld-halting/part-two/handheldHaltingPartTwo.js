@@ -2,7 +2,7 @@ const calculateAccumulatorValue = instructions => {
   const fixedInstructions = fixLoop(instructions);
   let accumulator = 0;
   let index = 0;
-  console.log(fixedInstructions);
+
   do {
     if (fixedInstructions[index].operation === "acc") {
       accumulator += fixedInstructions[index].argument;
@@ -13,10 +13,26 @@ const calculateAccumulatorValue = instructions => {
       index += 1;
     }
   } while (index < fixedInstructions.length);
+
   return accumulator;
 }
 
-const isAnInfiniteLoop = instructions => debug(instructions);
+const fixLoop = instructions => {
+  let debugResult = debug(instructions);
+  let executedInstructions = debugResult.executedInstructions;
+  let fixedLoop = [];
+
+  if (!debugResult.hasInfiniteLoop) {
+    return instructions;
+  } else {
+    while (debugResult.hasInfiniteLoop) {
+      const newInstructions = fixInstructions(instructions, executedInstructions); debugResult = debug(newInstructions);
+      executedInstructions.splice(0, 1);
+      fixedLoop = newInstructions;
+    }
+  }
+  return fixedLoop;
+}
 
 const debug = instructions => {
   let index = 0;
@@ -42,6 +58,7 @@ const debug = instructions => {
 
 const fixInstructions = (instructions, executedInstructions) => {
   const fixedInstructions = instructions.map(instruction => ({ ...instruction }));
+
   for (let i = 0; i < executedInstructions.length; i++) {
     const index = executedInstructions[i];
     if (fixedInstructions[index].operation === "jmp") {
@@ -54,21 +71,4 @@ const fixInstructions = (instructions, executedInstructions) => {
   }
 }
 
-const fixLoop = instructions => {
-  let debugResult = debug(instructions);
-  let executedInstructions = debugResult.executedInstructions;
-  let fixedLoop = [];
-
-  if (!debugResult.hasInfiniteLoop) {
-    return instructions;
-  } else {
-    while (debugResult.hasInfiniteLoop) {
-      const newInstructions = fixInstructions(instructions, executedInstructions); debugResult = debug(newInstructions);
-      executedInstructions.splice(0, 1);
-      fixedLoop = newInstructions;
-    }
-  }
-  return fixedLoop;
-}
-
-module.exports = { calculateAccumulatorValue, isAnInfiniteLoop, debug, fixLoop }
+module.exports = { calculateAccumulatorValue, fixLoop, debug }
