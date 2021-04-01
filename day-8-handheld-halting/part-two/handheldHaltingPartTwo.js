@@ -42,27 +42,31 @@ const debug = instructions => {
 }
 
 const fixInstructions = (instructions, executedInstructions) => {
+  const fixedInstructions = instructions.map(instruction => ({ ...instruction }));
   for (let i = 0; i < executedInstructions.length; i++) {
-    if (instructions[i].operation === "jmp") {
-      instructions[i].operation = "nop";
-      return instructions;
-    } else if (instructions[i].operation === "nop") {
-      instructions[i].operation = "jmp";
-      return instructions;
+    const index = executedInstructions[i];
+    if (fixedInstructions[index].operation === "jmp") {
+      fixedInstructions[index].operation = "nop";
+      return fixedInstructions;
+    } else if (fixedInstructions[index].operation === "nop") {
+      fixedInstructions[index].operation = "jmp";
+      return fixedInstructions;
     }
   }
 }
 
 const fixLoop = instructions => {
   let debugResult = debug(instructions);
-  let newInstructions = instructions;
+  let executedInstructions = debugResult.executedInstructions;
+  let fixedLoop = [];
 
   while (debugResult.hasInfiniteLoop) {
-    const executedInstructions = debugResult.executedInstructions;
-    newInstructions = fixInstructions(instructions, executedInstructions);
-    debugResult = debug(newInstructions)
+    const newInstructions = fixInstructions(instructions, executedInstructions); debugResult = debug(newInstructions);
+    executedInstructions.splice(0, 1);
+    fixedLoop = newInstructions;
   }
-  return newInstructions;
+
+  return fixedLoop;
 }
 
 module.exports = { calculateAccumulatorValue, isAnInfiniteLoop, debug, fixLoop }
