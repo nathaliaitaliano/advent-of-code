@@ -2,7 +2,7 @@ const calculateAccumulatorValue = instructions => {
   const fixedInstructions = fixLoop(instructions);
   let accumulator = 0;
   let index = 0;
-
+  console.log(fixedInstructions);
   do {
     if (fixedInstructions[index].operation === "acc") {
       accumulator += fixedInstructions[index].argument;
@@ -59,10 +59,14 @@ const fixLoop = instructions => {
   let executedInstructions = debugResult.executedInstructions;
   let fixedLoop = [];
 
-  while (debugResult.hasInfiniteLoop) {
-    const newInstructions = fixInstructions(instructions, executedInstructions); debugResult = debug(newInstructions);
-    executedInstructions.splice(0, 1);
-    fixedLoop = newInstructions;
+  if (!debugResult.hasInfiniteLoop) {
+    return instructions;
+  } else {
+    while (debugResult.hasInfiniteLoop) {
+      const newInstructions = fixInstructions(instructions, executedInstructions); debugResult = debug(newInstructions);
+      executedInstructions.splice(0, 1);
+      fixedLoop = newInstructions;
+    }
   }
   return fixedLoop;
 }
