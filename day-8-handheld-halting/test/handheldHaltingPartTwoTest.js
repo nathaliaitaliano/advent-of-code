@@ -3,14 +3,6 @@ const handheldHalting = require('../part-two/handheldHaltingPartTwo');
 
 describe('HandheldHalting', function () {
   describe('calculateAccumulatorValue', function () {
-    it('should return value 0 for the accumulator(ACC) before starts run the instructions', function () {
-      const instructions = [{}];
-      const accumulatorExpected = 0;
-      const accumulator = handheldHalting.calculateAccumulatorValue(instructions);
-
-      assert.strictEqual(accumulator, accumulatorExpected);
-    })
-
     it('should sum 2 to accumulator value given an instruction with operation: "acc" and argument: 2', function () {
       const instructions = [{ operation: "acc", argument: 2 }];
       const accumulatorExpected = 2;
@@ -63,7 +55,7 @@ describe('HandheldHalting', function () {
       assert.strictEqual(accumulator, accumulatorExpected);
     })
 
-    it('should jump for the previous instruction given an instruction with operation: "jmp" with a negative value for argument', function () {
+    it.only('should jump for the previous instruction given an instruction with operation: "jmp" with a negative value for argument', function () {
       const instructions = [
         { operation: "acc", argument: 1 },
         { operation: "jmp", argument: 2 },
@@ -93,34 +85,6 @@ describe('HandheldHalting', function () {
       const accumulator = handheldHalting.calculateAccumulatorValue(instructions);
 
       assert.strictEqual(accumulator, accumulatorExpected);
-    })
-
-    it('should return the new instructions fixed given an instructions input that has an infinite loop', function () {
-      const instructions = [
-        { operation: "nop", argument: 0 },
-        { operation: "acc", argument: 1 },
-        { operation: "jmp", argument: 4 },
-        { operation: "acc", argument: 3 },
-        { operation: "jmp", argument: -3 },
-        { operation: "acc", argument: -99 },
-        { operation: "acc", argument: 1 },
-        { operation: "jmp", argument: -4 },
-        { operation: "acc", argument: 6 }
-      ];
-      const instructionsFixedExpected = [
-        { operation: "nop", argument: 0 },
-        { operation: "acc", argument: 1 },
-        { operation: "jmp", argument: 4 },
-        { operation: "acc", argument: 3 },
-        { operation: "jmp", argument: -3 },
-        { operation: "acc", argument: -99 },
-        { operation: "acc", argument: 1 },
-        { operation: "nop", argument: -4 },
-        { operation: "acc", argument: 5 }
-      ];
-      const instructionsFixed = handheldHalting.fixLoop(instructions);
-
-      assert.deepStrictEqual(instructionsFixed, instructionsFixedExpected);
     })
   })
 
