@@ -1,9 +1,8 @@
 const calculateAccumulatorValue = instructions => {
   const fixedInstructions = fixLoop(instructions);
   let accumulator = 0;
-
   let index = 0;
-  console.log(index);
+
   do {
     if (fixedInstructions[index].operation === "acc") {
       accumulator += fixedInstructions[index].argument;
