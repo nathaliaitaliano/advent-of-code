@@ -76,6 +76,52 @@ describe('HandheldHalting', function () {
 
       assert.strictEqual(accumulator, accumulatorExpected);
     })
+
+    it('should return the accumulator value after the last instruction line given an instruction that starts an infinite loop', function () {
+      const instructions = [
+        { operation: "nop", argument: 0 },
+        { operation: "acc", argument: 1 },
+        { operation: "jmp", argument: 4 },
+        { operation: "acc", argument: 3 },
+        { operation: "jmp", argument: -3 },
+        { operation: "acc", argument: -99 },
+        { operation: "acc", argument: 1 },
+        { operation: "jmp", argument: -4 },
+        { operation: "acc", argument: 6 }
+      ];
+      const accumulatorExpected = 8;
+      const accumulator = handheldHalting.calculateAccumulatorValue(instructions);
+
+      assert.strictEqual(accumulator, accumulatorExpected);
+    })
+
+    it('should return the new instructions fixed given an instructions input that has an infinite loop', function () {
+      const instructions = [
+        { operation: "nop", argument: 0 },
+        { operation: "acc", argument: 1 },
+        { operation: "jmp", argument: 4 },
+        { operation: "acc", argument: 3 },
+        { operation: "jmp", argument: -3 },
+        { operation: "acc", argument: -99 },
+        { operation: "acc", argument: 1 },
+        { operation: "jmp", argument: -4 },
+        { operation: "acc", argument: 6 }
+      ];
+      const instructionsFixedExpected = [
+        { operation: "nop", argument: 0 },
+        { operation: "acc", argument: 1 },
+        { operation: "jmp", argument: 4 },
+        { operation: "acc", argument: 3 },
+        { operation: "jmp", argument: -3 },
+        { operation: "acc", argument: -99 },
+        { operation: "acc", argument: 1 },
+        { operation: "nop", argument: -4 },
+        { operation: "acc", argument: 5 }
+      ];
+      const instructionsFixed = handheldHalting.fixLoop(instructions);
+
+      assert.deepStrictEqual(instructionsFixed, instructionsFixedExpected);
+    })
   })
 
   describe('isAnInfiniteLoop', function () {
@@ -124,13 +170,13 @@ describe('HandheldHalting', function () {
         { operation: "nop", argument: 3 },
         { operation: "jmp", argument: -1 },
         { operation: "jmp", argument: -2 },
-        { operation: "acc", argument: 5 }
+        { operation: "acc", argument: 6 }
       ];
       const instructionsFixedExpected = [
         { operation: "jmp", argument: 3 },
         { operation: "jmp", argument: -1 },
         { operation: "jmp", argument: -2 },
-        { operation: "acc", argument: 5 }
+        { operation: "acc", argument: 6 }
       ];
       const instructionsFixed = handheldHalting.fixLoop(instructions);
 

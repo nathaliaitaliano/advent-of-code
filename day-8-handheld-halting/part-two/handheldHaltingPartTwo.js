@@ -1,19 +1,19 @@
-const calculateAccumulatorValue = (instructions) => {
+const calculateAccumulatorValue = instructions => {
+  const fixedInstructions = fixLoop(instructions);
   let accumulator = 0;
+
   let index = 0;
-
+  console.log(index);
   do {
-    const instruction = instructions[index];
-
-    if (instruction.operation === "acc") {
-      accumulator += instruction.argument;
+    if (fixedInstructions[index].operation === "acc") {
+      accumulator += fixedInstructions[index].argument;
       index += 1;
-    } else if (instruction.operation === "jmp") {
-      index += instruction.argument;
+    } else if (fixedInstructions[index].operation === "jmp") {
+      index += fixedInstructions[index].argument;
     } else {
       index += 1;
     }
-  } while (index < instructions.length);
+  } while (index < fixedInstructions.length);
   return accumulator;
 }
 
@@ -65,7 +65,6 @@ const fixLoop = instructions => {
     executedInstructions.splice(0, 1);
     fixedLoop = newInstructions;
   }
-
   return fixedLoop;
 }
 
