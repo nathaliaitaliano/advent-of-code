@@ -46,6 +46,9 @@ const fixInstructions = (instructions, executedInstructions) => {
     if (instructions[i].operation === "jmp") {
       instructions[i].operation = "nop";
       return instructions;
+    } else if (instructions[i].operation === "nop") {
+      instructions[i].operation = "jmp";
+      return instructions;
     }
   }
 }
