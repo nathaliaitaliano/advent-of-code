@@ -95,9 +95,9 @@ describe('HandheldHalting', function () {
         { operation: "acc", argument: 1 },
         { operation: "jmp", argument: -2 },
       ];
-      const isAnInfiniteLoop = handheldHalting.isAnInfiniteLoop(instructions);
+      const debugResult = handheldHalting.debug(instructions);
 
-      assert.ok(isAnInfiniteLoop.hasInfiniteLoop);
+      assert.ok(debugResult.hasInfiniteLoop);
     })
 
     it('should return false for infinit loop given an input of instructions', function () {
