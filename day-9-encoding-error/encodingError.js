@@ -15,7 +15,7 @@ const invalidateNumber = encondingErrorInput => {
 
   encondingErrorInput.otherNumbers.forEach(otherNumber => {
     if (otherNumber < maxSum && !sumPreamblePairsPosibles.includes(otherNumber)) {
-      return otherNumber;
+      invalidNumber = otherNumber;
     }
   })
   return invalidNumber;
