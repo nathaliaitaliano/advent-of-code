@@ -11,4 +11,4 @@ const split = (input, preambleNumbersQuantity) => {
   }
 }
 
-module.exports = { parser, split }
+module.exports = { split }
