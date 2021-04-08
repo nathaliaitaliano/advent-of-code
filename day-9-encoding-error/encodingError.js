@@ -1,9 +1,21 @@
 const invalidateNumber = encondingErrorInput => {
+  const sumPreamblePairsPosibles = [];
+  let invalidNumber = 0;
 
-const sum = encondingErrorInput.preambleNumbers.reduce(reducer);
-if(sum !== encondingErrorInput.otherNumbers[0]) return encondingErrorInput.otherNumbers[0];
+  encondingErrorInput.preambleNumbers.forEach(preambleNumber => {
+    for (let i = 0; i < encondingErrorInput.preambleNumbers.length; i++) {
+      if (preambleNumber !== encondingErrorInput.preambleNumbers[i]) {
+        const sum = preambleNumber + encondingErrorInput.preambleNumbers[i];
+        sumPreamblePairsPosibles.push(sum);
+      }
+    }
+  })
+
+  encondingErrorInput.otherNumbers.forEach(otherNumber => {
+    if(!sumPreamblePairsPosibles.includes(otherNumber)) invalidNumber = otherNumber;
+  })
+
+  return invalidNumber;
 }
-
-const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
 module.exports = { invalidateNumber }

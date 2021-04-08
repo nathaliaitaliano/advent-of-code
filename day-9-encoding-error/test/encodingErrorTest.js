@@ -14,7 +14,7 @@ describe('EncodingError', function () {
       assert.strictEqual(invalidNumer, invalidNumberExpected);
     })
 
-    it.only('Should return a number from othersNumbers that is not a sum of any two numbers from preambleNumbers given a preambleNumbers with three numbers', function () {
+    it('Should return a number from othersNumbers that is not a sum of any two numbers from preambleNumbers given a preambleNumbers with three numbers', function () {
       const encodingErrorInput = {
         preambleNumbers: [1, 2, 3],
         otherNumbers: [4, 6]
