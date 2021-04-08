@@ -6,8 +6,8 @@ const split = (input, preambleNumbersQuantity) => {
   const encodingErrorInput = parser(input);
 
   return {
-    preambleNumbers: encodingErrorInput.filter(number => encodingErrorInput.indexOf(number) <= preambleNumbersQuantity - 1),
-    otherNumbers: encodingErrorInput.filter(number => encodingErrorInput.indexOf(number) > preambleNumbersQuantity - 1)
+    preambleNumbers: encodingErrorInput.slice(0, preambleNumbersQuantity),
+    otherNumbers: encodingErrorInput.slice(preambleNumbersQuantity),
   }
 }
 
