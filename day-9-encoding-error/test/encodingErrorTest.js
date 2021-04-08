@@ -24,5 +24,16 @@ describe('EncodingError', function () {
 
       assert.strictEqual(invalidNumer, invalidNumberExpected);
     })
+
+    it('Should return a number from othersNumbers that is not a sum of any two numbers from preambleNumbers and does not bigger then bigger preamble pair sum posible given a preambleNumbers with three numbers', function () {
+      const encodingErrorInput = {
+        preambleNumbers: [1, 2, 3],
+        otherNumbers: [4, 20, 2]
+      };
+      const invalidNumberExpected = 2;
+      const invalidNumer = encodingError.invalidateNumber(encodingErrorInput);
+
+      assert.strictEqual(invalidNumer, invalidNumberExpected);
+    })
   })
 })

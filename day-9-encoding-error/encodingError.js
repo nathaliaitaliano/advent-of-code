@@ -1,6 +1,5 @@
 const invalidateNumber = encondingErrorInput => {
   const sumPreamblePairsPosibles = [];
-  let invalidNumber = 0;
 
   encondingErrorInput.preambleNumbers.forEach(preambleNumber => {
     for (let i = 0; i < encondingErrorInput.preambleNumbers.length; i++) {
@@ -11,10 +10,14 @@ const invalidateNumber = encondingErrorInput => {
     }
   })
 
-  encondingErrorInput.otherNumbers.forEach(otherNumber => {
-    if(!sumPreamblePairsPosibles.includes(otherNumber)) invalidNumber = otherNumber;
-  })
+  const maxSum = Math.max(...sumPreamblePairsPosibles);
+  let invalidNumber = 0;
 
+  encondingErrorInput.otherNumbers.forEach(otherNumber => {
+    if (otherNumber < maxSum && !sumPreamblePairsPosibles.includes(otherNumber)) {
+      return otherNumber;
+    }
+  })
   return invalidNumber;
 }
 
