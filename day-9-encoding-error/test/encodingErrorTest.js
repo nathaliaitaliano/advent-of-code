@@ -4,7 +4,7 @@ const encodingError = require('../encodingError');
 describe('EncodingError', function () {
   describe('findFirstInvalidNumber', function () {
     it('Should return a number that is not a sum of two numbers from preamble numbers given a preamble numbers with two numbers', function () {
-      const encodingErrorInput =  [1, 2, 2];
+      const encodingErrorInput = [1, 2, 2];
       const preambleNumbersQuantity = 2;
 
       const invalidNumberExpected = 2;
