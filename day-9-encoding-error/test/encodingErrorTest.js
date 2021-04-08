@@ -2,47 +2,43 @@ const assert = require('assert');
 const encodingError = require('../encodingError');
 
 describe('EncodingError', function () {
-  describe('invalidateNumber', function () {
-    it('Should return a number from othersNumbers that is not a sum of two numbers from preambleNumbers given a preambleNumbers with two numbers', function () {
-      const encodingErrorInput = {
-        preambleNumbers: [1, 2],
-        otherNumbers: [2]
-      };
+  describe('findFirstInvalidNumber', function () {
+    it('Should return a number that is not a sum of two numbers from preamble numbers given a preamble numbers with two numbers', function () {
+      const encodingErrorInput =  [1, 2, 2];
+      const preambleNumbersQuantity = 2;
+
       const invalidNumberExpected = 2;
-      const invalidNumer = encodingError.invalidateNumber(encodingErrorInput);
+      const invalidNumer = encodingError.findFirstInvalidNumber(encodingErrorInput, preambleNumbersQuantity);
 
       assert.strictEqual(invalidNumer, invalidNumberExpected);
     })
 
-    it('Should return a number from othersNumbers that is not a sum of any two numbers from preambleNumbers given a preambleNumbers with three numbers', function () {
-      const encodingErrorInput = {
-        preambleNumbers: [1, 2, 3],
-        otherNumbers: [4, 1]
-      };
+    it('Should return a number that is not a sum of any two numbers from preamble numbers given a preamble numbers quantity of three', function () {
+      const encodingErrorInput = [1, 2, 3, 4, 1];
+      const preambleNumbersQuantity = 3;
+
       const invalidNumberExpected = 1;
-      const invalidNumer = encodingError.invalidateNumber(encodingErrorInput);
+      const invalidNumer = encodingError.findFirstInvalidNumber(encodingErrorInput, preambleNumbersQuantity);
 
       assert.strictEqual(invalidNumer, invalidNumberExpected);
     })
 
-    it('Should return a number from othersNumbers that is not a sum of any two numbers from preambleNumbers and does not bigger then bigger preamble pair sum posible given a preambleNumbers with three numbers', function () {
-      const encodingErrorInput = {
-        preambleNumbers: [1, 2, 3],
-        otherNumbers: [4, 20, 2]
-      };
-      const invalidNumberExpected = 2;
-      const invalidNumer = encodingError.invalidateNumber(encodingErrorInput);
+    it('Should return the first number that is not a sum of any two numbers from preamble numbers given a preamble number quantity of three', function () {
+      const encodingErrorInput = [1, 2, 3, 4, 20, 2];
+      const preambleNumbersQuantity = 3;
+
+      const invalidNumberExpected = 20;
+      const invalidNumer = encodingError.findFirstInvalidNumber(encodingErrorInput, preambleNumbersQuantity);
 
       assert.strictEqual(invalidNumer, invalidNumberExpected);
     })
 
-    it('Should return the first number from othersNumbers that is not a sum of any two numbers from preambleNumbers and does not bigger then bigger preamble pair sum posible given a preambleNumbers with three numbers', function () {
-      const encodingErrorInput = {
-        preambleNumbers: [1, 2, 3],
-        otherNumbers: [4, 20, 1, 2]
-      };
-      const invalidNumberExpected = 1;
-      const invalidNumer = encodingError.invalidateNumber(encodingErrorInput);
+    it('Should return the first number that is not a sum of any two numbers from preamble numbers given a preamble number quantity of five', function () {
+      const encodingErrorInput = [35, 20, 15, 25, 47, 40, 62, 55, 65, 95, 102, 117, 150, 182, 127, 219, 299, 277, 309, 576];
+      const preambleNumbersQuantity = 5;
+
+      const invalidNumberExpected = 127;
+      const invalidNumer = encodingError.findFirstInvalidNumber(encodingErrorInput, preambleNumbersQuantity);
 
       assert.strictEqual(invalidNumer, invalidNumberExpected);
     })

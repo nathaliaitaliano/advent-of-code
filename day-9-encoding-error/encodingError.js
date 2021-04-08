@@ -1,18 +1,24 @@
-const invalidateNumber = encondingErrorInput => {
-  const sumPreamblePairsPosibles = [];
+const findFirstInvalidNumber = (encodingErrorInput, preambleNumbersQuantity) => {
 
-  encondingErrorInput.preambleNumbers.forEach(preambleNumber => {
-    for (let i = 0; i < encondingErrorInput.preambleNumbers.length; i++) {
-      if (preambleNumber !== encondingErrorInput.preambleNumbers[i]) {
-        const sum = preambleNumber + encondingErrorInput.preambleNumbers[i];
+  let sumPreamblePairsPosibles = [];
+
+  for (let i = preambleNumbersQuantity; i < encodingErrorInput.length; i++) {
+
+    for (let j = i - preambleNumbersQuantity; j < i; j++) {
+      let nextNumberIndex = j + 1;
+
+      while (nextNumberIndex < j + preambleNumbersQuantity) {
+        const sum = encodingErrorInput[j] + encodingErrorInput[nextNumberIndex];
         sumPreamblePairsPosibles.push(sum);
+        nextNumberIndex++
       }
+      nextNumberIndex = j + 1;
     }
-  })
 
-  const maxSum = Math.max(...sumPreamblePairsPosibles);
+    if (!sumPreamblePairsPosibles.includes(encodingErrorInput[i])) return encodingErrorInput[i];
+    sumPreamblePairsPosibles = [];
+  }
 
-  return encondingErrorInput.otherNumbers.find(otherNumber => otherNumber < maxSum && !sumPreamblePairsPosibles.includes(otherNumber));
 }
 
-module.exports = { invalidateNumber }
+module.exports = { findFirstInvalidNumber }
