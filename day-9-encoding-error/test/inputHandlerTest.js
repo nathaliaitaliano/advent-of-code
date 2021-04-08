@@ -15,7 +15,7 @@ describe('InputHandler', function () {
 
 describe('InputHandler', function () {
   describe('split', function () {
-    it.only('Should return an object with two lists: one for preamble numbers and other for the rest of numbers given an input', function () {
+    it('Should return an object with two lists: one for preamble numbers and other for the rest of numbers given an input', function () {
       const input = ["1", "2", "3"];
       const preambleNumbersQuantity = 2;
       const encodingErrorSplitedExpected = {
