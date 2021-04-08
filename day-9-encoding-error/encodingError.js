@@ -1,9 +1,6 @@
 const findFirstInvalidNumber = (encodingErrorInput, preambleNumbersQuantity) => {
-
-  let sumPreamblePairsPosibles = [];
-
   for (let i = preambleNumbersQuantity; i < encodingErrorInput.length; i++) {
-
+    let sumPreamblePairsPosibles = [];
     for (let j = i - preambleNumbersQuantity; j < i; j++) {
       let nextNumberIndex = j + 1;
 
@@ -14,11 +11,9 @@ const findFirstInvalidNumber = (encodingErrorInput, preambleNumbersQuantity) => 
       }
       nextNumberIndex = j + 1;
     }
-
     if (!sumPreamblePairsPosibles.includes(encodingErrorInput[i])) return encodingErrorInput[i];
     sumPreamblePairsPosibles = [];
   }
-
 }
 
 module.exports = { findFirstInvalidNumber }
