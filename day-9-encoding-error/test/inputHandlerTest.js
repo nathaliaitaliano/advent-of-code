@@ -12,3 +12,19 @@ describe('InputHandler', function () {
     })
   })
 })
+
+describe('InputHandler', function () {
+  describe('split', function () {
+    it.only('Should return an object with two lists: one for preamble numbers and other for the rest of numbers given an input', function () {
+      const input = ["1", "2", "3"];
+      const preambleNumbersQuantity = 2;
+      const encodingErrorSplitedExpected = {
+        preambleNumbers: [1, 2],
+        otherNumbers: [3]
+      };
+      const encodingErrorSplited = inputHandler.split(input, preambleNumbersQuantity);
+
+      assert.deepStrictEqual(encodingErrorSplited, encodingErrorSplitedExpected);
+    })
+  })
+})
