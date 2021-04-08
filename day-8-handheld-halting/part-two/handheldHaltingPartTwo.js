@@ -26,7 +26,8 @@ const fixLoop = instructions => {
     return instructions;
   } else {
     while (debugResult.hasInfiniteLoop) {
-      const newInstructions = fixInstructions(instructions, executedInstructions); debugResult = debug(newInstructions);
+      const newInstructions = fixInstructions(instructions, executedInstructions);
+      debugResult = debug(newInstructions);
       executedInstructions.splice(0, 1);
       fixedLoop = newInstructions;
     }
