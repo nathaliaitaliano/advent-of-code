@@ -2,19 +2,21 @@ const findFirstInvalidNumber = (encodingErrorInput, preambleNumbersQuantity) => 
   const indexOfNumberToVerify = preambleNumbersQuantity;
 
   for (let i = indexOfNumberToVerify; i < encodingErrorInput.length; i++) {
-    let sumPosibles = [];
+    const numberToVerify = encodingErrorInput[i];
     const indexOfPreambleNumber = i - preambleNumbersQuantity;
+    let sumPosibles = [];
 
     for (let j = indexOfPreambleNumber; j < i; j++) {
       let nextIndexOfPreambleNumber = j + 1;
 
       while (nextIndexOfPreambleNumber < j + preambleNumbersQuantity) {
-        const sum = encodingErrorInput[j] + encodingErrorInput[nextIndexOfPreambleNumber];
-        sumPosibles.push(sum);
+        const currentPreambleNumber = encodingErrorInput[j];
+        const nextPreambleNumberToSum = encodingErrorInput[nextIndexOfPreambleNumber];
+        sumPosibles.push(currentPreambleNumber + nextPreambleNumberToSum);
         nextIndexOfPreambleNumber++
       }
     }
-    if (!sumPosibles.includes(encodingErrorInput[i])) return encodingErrorInput[i];
+    if (!sumPosibles.includes(numberToVerify)) return numberToVerify;
   }
 }
 
