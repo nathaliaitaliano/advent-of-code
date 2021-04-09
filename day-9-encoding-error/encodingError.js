@@ -1,17 +1,20 @@
 const findFirstInvalidNumber = (encodingErrorInput, preambleNumbersQuantity) => {
-  for (let i = preambleNumbersQuantity; i < encodingErrorInput.length; i++) {
-    let sumPreamblePairsPosibles = [];
-    for (let j = i - preambleNumbersQuantity; j < i; j++) {
-      let nextNumberIndex = j + 1;
+  const indexOfNumberToVerify = preambleNumbersQuantity;
 
-      while (nextNumberIndex < j + preambleNumbersQuantity) {
-        const sum = encodingErrorInput[j] + encodingErrorInput[nextNumberIndex];
-        sumPreamblePairsPosibles.push(sum);
-        nextNumberIndex++
+  for (let i = indexOfNumberToVerify; i < encodingErrorInput.length; i++) {
+    let sumPosibles = [];
+    const indexOfPreambleNumber = i - preambleNumbersQuantity;
+
+    for (let j = indexOfPreambleNumber; j < i; j++) {
+      let nextIndexOfPreambleNumber = j + 1;
+
+      while (nextIndexOfPreambleNumber < j + preambleNumbersQuantity) {
+        const sum = encodingErrorInput[j] + encodingErrorInput[nextIndexOfPreambleNumber];
+        sumPosibles.push(sum);
+        nextIndexOfPreambleNumber++
       }
-      nextNumberIndex = j + 1;
     }
-    if (!sumPreamblePairsPosibles.includes(encodingErrorInput[i])) return encodingErrorInput[i];
+    if (!sumPosibles.includes(encodingErrorInput[i])) return encodingErrorInput[i];
     sumPreamblePairsPosibles = [];
   }
 }
