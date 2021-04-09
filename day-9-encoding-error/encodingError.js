@@ -15,7 +15,6 @@ const findFirstInvalidNumber = (encodingErrorInput, preambleNumbersQuantity) => 
       }
     }
     if (!sumPosibles.includes(encodingErrorInput[i])) return encodingErrorInput[i];
-    sumPreamblePairsPosibles = [];
   }
 }
 
