@@ -1,7 +1,6 @@
-const fs = require('fs')
 const sonarWeep = require('./sonarWeep')
-
-const entries = fs.readFileSync('entries-input').toString().split('\n').map((measurement) => parseInt(measurement, 10))
+const inputParser = require ('./inputParser')
+const entries = inputParser.parse('entries-input')
 
 var measurements = sonarWeep.findMeasurements(entries)
 
