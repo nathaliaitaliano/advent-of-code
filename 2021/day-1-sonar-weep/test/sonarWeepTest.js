@@ -36,11 +36,11 @@ describe('SonarWeep', function () {
         })
 
         it('should return 3 given an entries', function () {
-            const entries = [1, 2, 3, 4, 2, 1]
+            const entries = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263]
 
             const result = sonarWeep.findMeasurements(entries)
 
-            assert.strictEqual(result, 3)
+            assert.strictEqual(result, 7)
         })
     })
 })
