@@ -50,5 +50,13 @@ describe('SonarWeep', function () {
 
             assert.strictEqual(result, 1)
         })
+
+        it('should return 3 given an entries', function () {
+            const entries = [1, 2, 3, 4, 2, 1]
+
+            const result = report.findMeasurements(entries)
+
+            assert.strictEqual(result, 3)
+        })
     })
 })
