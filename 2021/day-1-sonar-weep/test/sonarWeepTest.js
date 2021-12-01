@@ -18,5 +18,13 @@ describe('SonarWeep', function () {
 
             assert.strictEqual(result, 0)
         })
+
+        it('should return 0 given an entries with two measurements where the next value is lower than previous', function () {
+            const entries = [1, 0]
+
+            const result = report.findMeasurements(entries)
+
+            assert.strictEqual(result, 0)
+        })
     })
 })
