@@ -3,7 +3,7 @@ const encodingError = require('../encodingError');
 
 describe('EncodingError', function () {
   describe('findFirstInvalidNumber', function () {
-    it('Should return a number that is not a sum of two numbers from preamble numbers given a preamble numbers with two numbers', function () {
+    it('Should return an invalid number that is not a sum of two numbers from preamble numbers given a preamble numbers quantity of two', function () {
       const encodingErrorInput = [1, 2, 2];
       const preambleNumbersQuantity = 2;
 
@@ -13,7 +13,7 @@ describe('EncodingError', function () {
       assert.strictEqual(invalidNumer, invalidNumberExpected);
     })
 
-    it('Should return a number that is not a sum of any two numbers from preamble numbers given a preamble numbers quantity of three', function () {
+    it('Should return an invalid number that is not a sum of any two numbers from preamble numbers given a preamble numbers quantity of three', function () {
       const encodingErrorInput = [1, 2, 3, 4, 1];
       const preambleNumbersQuantity = 3;
 
