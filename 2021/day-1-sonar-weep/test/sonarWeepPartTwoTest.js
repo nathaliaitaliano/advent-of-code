@@ -24,14 +24,14 @@ describe('SonarWeepPartTwo', function () {
         assert.strictEqual(result, 0)
       })
 
-      it('should return 0 given an entries with four measurements where the next three-measurement window sum is lower than previous', function () {
+      it('should return 0 given an entries with four measurements where the next three-measurement sum window is lower than previous', function () {
         const entries = [1, 2, 3, 0]
         const result = sonarWeepPartTwo.findSumMeasurements(entries)
 
         assert.strictEqual(result, 0)
       })
 
-    it('should return 1 given an entries with four measurements where the next three-measurement window sum is lower than previous', function () {
+    it('should return 1 given an entries with four measurements where the next three-measurement sum windowis lower than previous', function () {
       const entries = [1, 2, 3, 4]
       const result = sonarWeepPartTwo.findSumMeasurements(entries)
 
