@@ -3,22 +3,6 @@ const report = require('../sonarWeep')
 
 describe('SonarWeep', function () {
     describe('findMeasurements', function () {
-        it('should return NULL given a null entries', function () {
-            const entries = null
-
-            const result = report.findMeasurements(entries)
-
-            assert.strictEqual(result, null)
-        })
-
-        it('should return NULL given an empty entries', function () {
-            const entries = []
-
-            const result = report.findMeasurements(entries)
-
-            assert.strictEqual(result, null)
-        })
-
         it('should return 0 given one measurement', function () {
             const entries = [1]
 
