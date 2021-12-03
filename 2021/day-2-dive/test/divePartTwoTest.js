@@ -38,5 +38,14 @@ describe('Dive', function () {
 
         assert.deepEqual(result, positionsExpected)
       })
+
+      it('should return positions given an entries instructions', function () {
+        const entries = ["forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2"]
+        const positionsExpected = { horizontal: 15, depth: 60, aim: 10 }
+
+        const result = dive.calculatePositions(entries)
+
+        assert.deepEqual(result, positionsExpected)
+      })
     })
 })
