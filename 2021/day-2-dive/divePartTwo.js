@@ -8,7 +8,8 @@ const positions = {
 }
 
   instructions.forEach(instruction => {
-    if(instruction.command == "forward") positions.horizontal += instruction.value
+    if(instruction.command == "forward")positions.horizontal += instruction.value
+    if(instruction.command == "down") positions.aim += instruction.value
   })
 
   return positions
