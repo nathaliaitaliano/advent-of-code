@@ -13,6 +13,7 @@ const positions = {
       positions.depth += positions.aim * instruction.value
     }
     if(instruction.command == "down") positions.aim += instruction.value
+    if(instruction.command == "up") positions.aim -= instruction.value
   })
 
   return positions
