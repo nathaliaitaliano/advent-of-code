@@ -1,3 +1,5 @@
-const findMeasurements = (entries) => entries.reduce((measurements, measurement, index) => measurement > entries[index - 1] ? measurements + 1 : measurements, 0)
+const calculatePositions = (entries) => {
+  return { horizontal: 0, depth: 0 }
+}
 
-module.exports = { findMeasurements }
+module.exports = { calculatePositions }
