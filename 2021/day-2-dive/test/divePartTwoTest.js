@@ -20,5 +20,14 @@ describe('Dive', function () {
 
         assert.deepEqual(result, positionsExpected)
       })
+
+      it('should increases depth by aim multiplied by instruction value given a forward instruction', function () {
+        const entries = ["forward 1", "down 1", "forward 2"]
+        const positionsExpected = { horizontal: 3, depth: 2, aim: 1 }
+
+        const result = dive.calculatePositions(entries)
+
+        assert.deepEqual(result, positionsExpected)
+      })
     })
 })
