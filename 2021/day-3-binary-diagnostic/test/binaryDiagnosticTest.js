@@ -18,5 +18,13 @@ describe('BinaryDiagnostic', function () {
 
         assert.deepEqual(result, diagnosticExpected)
       })
+
+      it('should return, gammaRate value and epilsonRate value given a report', function () {
+        const report = ["00100", "11110", "10110", "10111", "10101", "01111", "00111", "11100", "10000", "11001", "00010", "01010"]
+        const diagnosticExpected = { gammaRate: "10110", epilsonRate: "01001"}
+        const result = binaryDiagnostic.generateDiagnostic(report)
+
+        assert.deepEqual(result, diagnosticExpected)
+      })
     })
 })

@@ -4,19 +4,8 @@ const generateDiagnostic = entries => {
     epilsonRate: ""
   }
 
-  const numbersByColumnGrouped = traverse(entries)
+  traverse(entries).forEach(number => number.filter(bit => bit === "0").length > number.length/2 ? (diagnostic.gammaRate += "0", diagnostic.epilsonRate += "1") : (diagnostic.gammaRate += "1", diagnostic.epilsonRate += "0"))
 
-  numbersByColumnGrouped.forEach(number => {
-    const zeros = number.filter(bit => bit === "0").length
-    if(zeros > number.length/2) {
-      diagnostic.gammaRate += "0"
-      diagnostic.epilsonRate += "1"
-    } else {
-      diagnostic.gammaRate += "1"
-      diagnostic.epilsonRate += "0"
-    }
-  })
-  console.log(diagnostic)
   return diagnostic
 }
 
