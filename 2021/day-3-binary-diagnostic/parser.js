@@ -2,6 +2,6 @@ const fs = require('fs')
 
 const parse = entries => fs.readFileSync(entries).toString().split('\n')
 
-const parseToDecimal = rate => parseInt(rate, 2)
+const parseToDecimal = binaryNumber => parseInt(rate, 2)
 
-module.exports = { parse }
+module.exports = { parse, parseToDecimal }
